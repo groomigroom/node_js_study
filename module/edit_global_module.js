@@ -14,3 +14,8 @@ const timer = setInterval(() => {
     }
 }, waitingInterval);
 
+/*
+clearInterval은 setInterval 함수로 반복 실행하던 것을 멈추는 것
+setTimeout은 지정한 시간이 지난 후에 함수 실행하는 것
+*/
+
