@@ -20,15 +20,13 @@ npm install express 또는 npm i express로 하기.
 
 npm install nodemon --save-dev
 
-test.js 파일 198쪽 보기.
 그러고는 터미널에 npx nodemon js파일이름(예시: app) 명령으로 서버 시작
 그리고 localhost:3000으로 크롬에 들어가면,  vscode 터미널에 request received 텍스트 표시됨.
-200쪽에 나오는 console.log 내용을 바꾸면 자동으로 내용 변경됨.
+console.log 내용을 바꾸면 자동으로 내용 변경됨.
 서버 종료시에는 vscode 터미널에서 ctrl + c 하면 됨.
 
 package-lock.json은 패키지의 의존성을 참고해서 다른 패키지도 함께 내려받을 수 있도록 하기 위해서 만들어진 파일임.
 
-201쪽 서버 만들기부터 보기.
 */
 
 const express = require("express");
