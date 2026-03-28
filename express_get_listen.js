@@ -1,3 +1,36 @@
+/*
+vscode 터미널에 폴더 넣고 npm init으로 package.json 만들기
+->npm 초기화를 통해서 만드는 방식입니다. 터미널에서 입력하라고 뜨는 내용은 원하는 정보 입력해서 하기.
+
+터미널에서 package name 입력칸 -> 패키지 (애플리케이션) 이름 입력하기, 한 단어로 하기 _ 이용해도 됨.
+version 입력칸 -> 첫 번째는 메이저, 두 번째는 마이너, 세번째는 패치를 의미함. ##### 그냥 엔터 누르면, 첫 번째 버전인 1.0.0을 사용하게 됨.
+description 입력칸: 설명 내용 입력하기. 비워놔도 됨.
+entry potint: 패키지를 시작하는 파일 지정하기. 입력 안하면, index.js 파일 사용함. 여기서는 app.js 사용하기.
+test command: 코드를 테스트할 때 사용할 명령 입력. 따로 안해도 됨.
+git repository: git을 통해 코드를 공개할 경우 저장소 주소 입력하기.
+keywords: 패키지를 공개한다면 검색시에 사용할 만한 키워드 입력.
+author: 제작자 이름
+license: 기본 라이선스는 ISC임.
+
+익스프레스 패키지 설치하기
+npm install express 또는 npm i express로 하기.
+
+노드몬 설치하기
+서버 코드를 계속 수정하면서 결과 확인하려면, 그 때마다 서버를 종료한 후 재실행해야 하는데, 이런 과정을 편하게 바꿔 주는 패키지가 노드몬.
+
+npm install nodemon --save-dev
+
+test.js 파일 198쪽 보기.
+그러고는 터미널에 npx nodemon js파일이름(예시: app) 명령으로 서버 시작
+그리고 localhost:3000으로 크롬에 들어가면,  vscode 터미널에 request received 텍스트 표시됨.
+200쪽에 나오는 console.log 내용을 바꾸면 자동으로 내용 변경됨.
+서버 종료시에는 vscode 터미널에서 ctrl + c 하면 됨.
+
+package-lock.json은 패키지의 의존성을 참고해서 다른 패키지도 함께 내려받을 수 있도록 하기 위해서 만들어진 파일임.
+
+201쪽 서버 만들기부터 보기.
+*/
+
 const express = require("express");
 const app = express();
 const port = 3000;
