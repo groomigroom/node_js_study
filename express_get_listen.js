@@ -1,3 +1,16 @@
+const express = require("express");
+const app = express();
+const port = 3000;
+
+app.get("/", (req, res) => {
+    res.status(200);
+    res.send("hello groom");
+});
+
+app.listen(port, () => {
+    console.log(`${port}번 포트에서 김구름이 나옵니다.`)
+});
+
 /*
 vscode 터미널에 폴더 넣고 npm init으로 package.json 만들기
 ->npm 초기화를 통해서 만드는 방식입니다. 터미널에서 입력하라고 뜨는 내용은 원하는 정보 입력해서 하기.
