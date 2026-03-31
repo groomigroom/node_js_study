@@ -1,0 +1,74 @@
+/*npm init
+nodemon, express npm으로 설치하고
+*/
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+    res.status(200);
+    res.send("hello groomi");
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}`);
+});
+
+/*
+이 코드는 Express.js를 이용해 아주 간단한 웹 서버를 구축하는 표준적인 예제입니다. 이전 코드의 오류들이 모두 수정되어 정상적으로 실행되는 구조입니다.
+1. 코드 상세 분석
+require 구문:
+http: 노드 기본 모듈이지만, 현재 코드 하단에서 직접 사용되지는 않고 있습니다. (보통 웹소켓 연결 시 필요합니다.)
+express: 웹 서버 기능을 편하게 쓰기 위해 외부 프레임워크를 불러옵니다.
+app.get("/", ...): 라우팅(Routing) 설정입니다.
+사용자가 브라우저 주소창에 http://localhost:3000/을 입력(GET 요청)하면 이 함수가 실행됩니다.
+res.status(200): 서버가 "요청을 성공적으로 처리했다"는 신호(OK)를 보냅니다.
+
+res.send("hello groomi"): 브라우저 화면에 "hello groomi"라는 문구를 출력합니다.
+대신에 res.download를 하면: 파일을 내려 받는 거.
+대신에 res.end를 하면: 응답 프로세스를 종료 하는 거.
+대신에 res.json을 하면: json 응답을 전송하는 거
+app.get("/", (req, res) => {
+    res.status(200);
+    res.json({ groomi: "hello groomi" });
+});
+대신에 res.jsonp를 하면: jsonp 지원을 통해 json 응답을 전송하는 거.
+대신에 res.redirect를 하면: 요청 경로를 재지정해서 강제 이동하는 거.
+대신에 res.render를 하면: 뷰 템플릿을 화면에 렌더링하는 거.
+대신에 res.sendFile을 하면: 지정한 경로의 파일을 읽어서 내용을 전송하는 거.
+app.get("/contacts", (req, res) => {
+    // res.status(200);
+    res.sendFile(__dirname + "/assets/contacts.html");
+});
+대신에 res.sendStatus를 하면: 상태 메시지와 함께 http 상태 코드를 전송하는 거.
+대신에 res.status를 하면: 응답의 상태 코드를 설정하는 거.
+
+app.listen(PORT, ...):
+3000번 포트를 열고 클라이언트의 접속을 기다립니다.
+서버가 성공적으로 켜지면 터미널에 Server is running... 메시지를 띄웁니다.
+2. 한 줄 요약
+"3000번 포트로 접속하면 화면에 'hello groomi'라고 인사해주는 서버"입니다.
+💡 팁
+현재 http 모듈은 불러오기만 하고 사용하지 않고 있는데, const server = http.createServer(app); 같은 코드가 없다면 const http = require("http"); 줄은 삭제해도 무방합니다.
+*/
+
+/*
+res.status 추가하기#####
+
+app.get("/contacts", (req, res) => {
+    res.status(200).send("Contacts Page");
+});
+
+app.post("/contacts", (req, res) => {
+    res.status(201).send("Create Contacts");
+});
+
+제시해주신 코드는 Node.js의 Express 프레임워크를 사용하여 특정 URL(" /contacts")로 들어오는 요청을 처리하는 설정입니다.
+쉽게 풀어서 해석해 드릴게요.
+1. app.get("/contacts", ...)
+의미: 사용자가 브라우저 주소창에 주소를 입력하거나 링크를 클릭해 "연락처 페이지를 보여줘"라고 요청(GET 방식)할 때 실행됩니다. [1, 2]
+결과: 서버는 상태 코드 200(성공)과 함께 "Contacts Page"라는 문구를 화면에 띄워줍니다.
+2. app.post("/contacts", ...)
+의미: 사용자가 폼 데이터를 입력하고 '저장' 버튼을 누르는 등 "새 연락처를 등록해줘"라고 데이터와 함께 요청(POST 방식)할 때 실행됩니다. [1, 4]
+결과: 서버는 상태 코드 201(생성됨)과 함께 "Create Contacts"라는 응답을 보내 등록이 시작되었음을 알립니다
+*/
