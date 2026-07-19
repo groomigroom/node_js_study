@@ -1,0 +1,5 @@
+setTimeout -> 일정 시간 이후에 코드를 실행시켜주는 거.
+예: 
+setTimeout(() => {
+    console.log('타임 실험');
+}, 3000);
