@@ -202,9 +202,6 @@ app.post('/api/users', (req, res) => {
 
 
 
-
-   
-            res.writeHead('200', { 'Content-Type': 'text/html; charset=utf-8' });
             res.write('<h1>DB 서버 연결 실패</h1>');
             res.end();
             return;
