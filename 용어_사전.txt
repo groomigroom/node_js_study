@@ -189,14 +189,6 @@ app.post('/api/users', (req, res) => {
 00000000000000000000000000000000000000000000000000000000000000000000000000
 
 
-post는 함.,..
-
-
-
-
-app.post('/process/adduser', (req, res) => {
-    console.log('/process/adduser 호출됨' + req);
-
 
 
     pool.getConnection((err, conn) => {
