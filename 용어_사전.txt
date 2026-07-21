@@ -135,29 +135,6 @@ app.post('/api/users', (req, res) => {
 
 00000000000000000000000000000000000000000000000000000000000000000000000000
 
-app.use(express.json()); -->
-express.json()은 클라이언트가 서버로 보낸 JSON 형식의 HTTP 요청 본문(Request Body)을 파싱(해석)하여,
-서버 측 코드에서 req.body 객체로 쉽게 접근할 수 있게 해주는 Express의 내장 미들웨어입니다.
-필요성과 작동 원리
-문제점: 기본적으로 Node.js나 Express는 클라이언트가 전송한 Request Body를 읽지 못해 undefined를 반환합니다.
-해결책: app.use(express.json());을 작성하면, 서버는 들어오는 HTTP 요청의 Content-Type 헤더가 application/json인지 확인하고 해당 데이터를 JavaScript 객체로 변환해 줍니다.
-사용 예시
-javascript
-const express = require('express');
-const app = express();
-
-// express.json() 미들웨어 등록
-app.use(express.json());
-
-app.post('/api/users', (req, res) => {
-  // 클라이언트가 보낸 JSON 데이터가 객체로 변환되어 req.body에 담김
-  const { name, age } = req.body;
-  
-  res.send(`환영합니다, ${age}세 ${name}님!`);
-});
-
----------------------------
-
 
 app.use('/public', static(path.join(__dirname, 'public')));
 
