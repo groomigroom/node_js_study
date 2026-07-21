@@ -286,9 +286,6 @@ app.post('/api/users', (req, res) => {
 
 
 
-        const exec = conn.query('insert into users (id, name, age, password) values(?, ?, ?, password(?))',
-            [paramId, paramName, paramAge, paramPassword],
-            (err, result) => {
                 conn.release();
                 console.log('실행된 SQL: ' + exec.sql);
 
