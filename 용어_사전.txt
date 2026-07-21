@@ -88,5 +88,24 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 
+node.js에서 express.json()의 의미?                        express.json()은 클라이언트가 서버로 보낸 JSON 형식의 HTTP 요청 본문(Request Body)을 파싱(해석)하여, 서버 측 코드에서 req.body 객체로 쉽게 접근할 수 있게 해주는 Express의 내장 미들웨어입니다.💡 필요성과 작동 원리문제점: 기본적으로 Node.js나 Express는 클라이언트가 전송한 Request Body를 읽지 못해 undefined를 반환합니다.해결책: app.use(express.json());을 작성하면, 서버는 들어오는 HTTP 요청의 Content-Type 헤더가 application/json인지 확인하고 해당 데이터를 JavaScript 객체로 변환해 줍니다.💻 사용 예시javascriptconst express = require('express');
+const app = express();
+
+// express.json() 미들웨어 등록
+app.use(express.json());
+
+app.post('/api/users', (req, res) => {
+  // 클라이언트가 보낸 JSON 데이터가 객체로 변환되어 req.body에 담김
+  const { name, age } = req.body;
+  
+  res.send(`환영합니다, ${age}세 ${name}님!`);
+});
+코드를 사용할 때는 주의가 필요합니다.서버 개발을 진행 중이시라면, 현재 프로젝트에서 아래와 같은 부분들을 더 살펴보고 도와드릴 수 있습니다.express.json()과 함께 자주 쓰이는 express.urlencoded()의 차이점클라이언트가 데이터를 전송할 때 발생하는 에러 처리 방법API 엔드포인트에 맞춘 데이터 라우팅 설계어떤 부분을 조금 더 알아보고 싶으신가요?GitHub[NodeJs] express.json()과 express.urlencoded()의 차이점 알아 ...2021. 10. 16. — 즉 form(폼)으로 제출되는 값은 x-www-form-urlencoded형태이며 express.json() 으로는 값을 해석할 수 없습니다. 이번엔 “Postm...Medium·Yihimin[백엔드] node.js express미들웨어 - Medium2024. 6. 24. — 역할: 이 미들웨어는 application/json 형식으로 전송된 JSON 데이터를 파싱합니다. 주로 API 요청에서 JSON 형식의 데이터를 처리할 때 사용됩...티스토리[Express] express.json 메소드 이해하기2023. 5. 13. — app.use(express.json()); 의 역할. HTTP에서 보내오는 JSON 형식의 요청을 JavaScript 객체로 변환하여 사용하게 해준다.Naver Blog[Node.js] express.json() : 네이버 블로그2019. 11. 15. — 우선 이 기능은 Express에 내장된 미들웨어 기능이다. JSON으로 들어오는 요청을 구문분석하며, body-parser을 기반으로 한다. JSON부분만 파싱하...    AI 답변에 오류가 있을 수 있습니다. 자세히 알아보기
+
+ㅡㅡㅡㅡㅡㅡ
+
 
 app.use('/public', static(path.join(__dirname, 'public')));
+
+
+ㅡㅡㅡㅡㅡㅡ
