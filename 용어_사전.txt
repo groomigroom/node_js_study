@@ -53,7 +53,7 @@ app.use(express.urlencoded({ extended: true }));
 
 ---------------------------
 
-getConnection((err, conn) => {}); -->
+.getConnection((err, conn) => {}); -->
 데이터베이스 커넥션 풀(Connection Pool)에서 데이터베이스와 통신할 수 있는 하나의 연결(conn)을 빌려오는(할당받는) 명령어입니다.
 Node.js 환경에서 주로 mysql이나 mysql2 같은 모듈을 사용할 때 등장하며,
 동작 방식은 다음과 같습니다.
