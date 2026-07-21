@@ -11,6 +11,8 @@ setTimeout(() => {
 
 mysql.createPool()은 Node.js 애플리케이션에서 MySQL 데이터베이스와 여러 개의 연결(Connection)을 미리 만들어 두고 관리하는 '커넥션 풀(Connection Pool)'을 생성하는 함수입니다.주요 동작 원리createConnection은 일회성 단일 연결을 만듭니다.createPool은 대량의 데이터베이스 연결 객체들을 보관하는 '수영장(Pool)'을 만듭니다.애플리케이션이 쿼리를 요청하면 풀에서 쉬고 있는 연결을 빌려와 실행합니다.실행이 끝나면 연결을 파괴하지 않고 다시 풀에 반환하여 다음 요청이 재사용하게 합니다.
 
+ㅡㅡㅡㅡㅡㅡ
+
 require('serve-static');는 Node.js 환경에서 웹 서버를 구축할 때, 정적 파일(이미지, CSS, JavaScript, HTML 등)을 클라이언트에게 쉽게 제공(서빙)하기 위해 사용하는 미들웨어 모듈을 불러오는 코드입니다.💡 핵심 기능 및 역할정적 파일 직접 제공: 서버에 있는 특정 폴더(예: public, assets)를 지정하면, 클라이언트의 요청 URL에 맞춰 해당 폴더 내부의 파일을 바로 읽어 응답합니다.보안 및 최적화: 디렉토리 탐색(폴더 구조 노출)을 방지하는 기본 보안 처리가 되어 있으며, 파일 캐싱을 지원하여 서버 성능을 최적화합니다.💻 사용 방법 (Express 프레임워크 기준)일반적으로 이 모듈은 Node.js의 대표적인 웹 프레임워크인 Express와 함께 사용됩니다.javascriptconst express = require('express');
 const serveStatic = require('serve-static');
 const path = require('path');
@@ -22,3 +24,5 @@ app.use(serveStatic(path.join(__dirname, 'public')));
 
 app.listen(3000);
 코드를 사용할 때는 주의가 필요합니다.참고사항:Express 4.x 버전부터는 serve-static 모듈의 기능이 내장되어 있어 별도로 설치할 필요 없이 app.use(express.static('public')); 형태로 바로 사용할 수 있습니다. 단, Express 없이 순수 Node.js만 사용하거나 커스텀 미들웨어를 구성할 때는 이 모듈을 직접 설치(npm install serve-static)해서 사용해야 합니다.
+
+ㅡㅡㅡㅡ.
