@@ -228,9 +228,7 @@ app.post('/api/users', (req, res) => {
 00000000000000000000000000000000000000000000000000000000000000000000000000
 
 
-            return;
 
-        console.log('db 연결 성공');
 
         const exec = conn.query('insert into users (id, name, age, password) values(?, ?, ?, password(?))',
             [paramId, paramName, paramAge, paramPassword],
