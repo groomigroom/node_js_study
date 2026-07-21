@@ -129,6 +129,11 @@ Express 4.x 버전부터는 serve-static 모듈의 기능이 내장되어 있어
 
 ---------------------------
 
+.res.writeHead('200', { 'Content-Type': 'text/html; charset=utf-8' }); -->
+
+
+
+---------------------------
 
 setTimeout -->
 일정 시간 이후에 코드를 실행시켜주는 거.
