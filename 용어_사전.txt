@@ -178,11 +178,6 @@ post는 함.,..
 
 
 
-    const paramId = req.body.id;
-    const paramName = req.body.name;
-    const paramAge = req.body.age;
-    const paramPassword = req.body.password;
-
     pool.getConnection((err, conn) => {
         if (err) {
 
