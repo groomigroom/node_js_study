@@ -168,8 +168,7 @@ app.post('/api/users', (req, res) => {
 
 post는 함.,..
 
-app.post('/process/adduser', (req, res) => {
-    console.log('/process/adduser 호출됨' + req);
+
 
     const paramId = req.body.id;
     const paramName = req.body.name;
