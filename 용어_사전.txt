@@ -109,3 +109,14 @@ app.use('/public', static(path.join(__dirname, 'public')));
 
 
 ㅡㅡㅡㅡㅡㅡ
+
+app.post('/process/adduser', (req, res) => {
+    console.log('/process/adduser 호출됨' + req);
+
+    const paramId = req.body.id;
+    const paramName = req.body.name;
+    const paramAge = req.body.age;
+    const paramPassword = req.body.password;
+
+    pool.getConnection((err, conn) => {
+        if (err) {
