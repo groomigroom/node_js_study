@@ -60,3 +60,19 @@ GitHub
  +2
 
 ㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+node.js에서 express.urlencoded의 의미?    +4                    express.urlencoded()는 클라이언트가 웹 브라우저의 HTML <form>을 통해 전송한 URL-encoded 형식의 POST 데이터를 파싱(해석)하여, 서버 측에서 req.body 객체로 접근할 수 있게 해주는 미들웨어입니다.주요 개념 및 활용동작 원리: 웹 폼에서 데이터를 제출하면 보통 application/x-www-form-urlencoded 형태로 인코딩되어 서버로 전송됩니다. 이 미들웨어는 인코딩된 문자열을 자바스크립트 객체로 변환해줍니다.옵션 (extended):extended: false: Node.js에 내장된 querystring 라이브러리를 사용하여 데이터를 해석합니다.extended: true: qs 라이브러리를 사용하여 중첩된 객체(nested object) 등 더 복잡한 형태의 데이터를 해석할 수 있습니다.사용 예시 코드javascriptconst express = require('express');
+const app = express();
+
+// 클라이언트 폼 데이터를 파싱하기 위한 미들웨어 등록
+app.use(express.urlencoded({ extended: false }));
+
+app.post('/submit-form', (req, res) => {
+  // 클라이언트가 보낸 데이터는 req.body 객체에 담겨 있습니다.
+  const userName = req.body.name; 
+  res.send(`안녕하세요, ${userName}님!`);
+});
+코드를 사용할 때는 주의가 필요합니다.더 원활한 진행을 위해 다음 사항을 알려주시면 구체적인 코드를 작성해 드릴 수 있습니다.현재 전송하려는 폼 데이터의 구조 (단순한 값인지, 중첩된 객체나 배열 형태인지)데이터가 HTML 폼에서 오는지, 아니면 Axios/Fetch 같은 비동기 요청인지관련하여 궁금한 점이 있으시면 편하게 말씀해 주세요!GitHub[NodeJs] express.json()과 express.urlencoded()의 차이점 알아 ...2021. 10. 16. — js ... urlencoded() 은 x-www-form-urlencoded형태의 데이터를 .json() 은 JSON형태의 데이터를 해석해줍니다. 2️⃣ bod...티스토리express.urlencoded - 개발정리 - 티스토리2024. 8. 20. — express.urlencoded- HTTP POST 요청의 본문에 인코딩된 데이터를 해석하고, req.body 객체에 채워넣는 역할- express.urlenc...티스토리 express.urlencoded가 필요한 이유 - 오늘도 디벅잉 - 티스토리2022. 3. 2. — { express.urlencoded } 언제 사용하나요? express 서버로 POST 요청을 할 때 input 태그의 value를 전달하기 위해 사용합니다. ...티스토리express.urlencoded()에 대한 간단한 조사 - 박용현의 개발일지2024. 9. 28. — express.urlencoded()는 URL-encoded 데이터를 파싱해서 req.body 객체에 추가해줍니다. URL-encoded 데이터는 일반적으로 웹 ...티스토리express.urlencoded 가 뭐지? - 3-STACK - 티스토리2022. 1. 16. — 새로 들어가는 프로젝트의 API 서버 환경설정 중 `express.urlencoded` 옵션이 눈에 들어왔다. 초기에 한번 세팅해두고 무심하게 쓰던 옵션인데 확실...티스토리Node.js | Express : Request Parameters2019. 12. 23. — URL-encoded는 주소 형식으로 데이터를 보내는 방식이다. 'extended' 옵션이 false면 쿼리스트링을 해석함에 있어서 querystring ( 쿼리...    AI 답변에 오류가 있을 수 있습니다. 자세히 알아보기
+
+ㅡㅡㅡㅡㅡㅡㅡ
