@@ -193,9 +193,7 @@ post는 함.,..
 
 
 
-    pool.getConnection((err, conn) => {
-        if (err) {
-
+ 
 
 app.use('/public', static(path.join(__dirname, 'public')));
 
