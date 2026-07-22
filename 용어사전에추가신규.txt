@@ -4,6 +4,19 @@
 
 
 
+---------------------------------------------------------------------
+
+get
+A function called with an empty argument list to retrieve the property value whenever a get access to the value is performed. See also getters. May be undefined.
+
+set
+A function called with an argument that contains the assigned value. Executed whenever a specified property is attempted to be changed. See also setters. May be undefined.
+
+enumerable
+A boolean value indicating if the property can be enumerated by a for...in loop. See also Enumerability and ownership of properties for how enumerability interacts with other functions and syntaxes.
+
+configurable
+A boolean value indicating if the property can be deleted, can be changed to a data property, and can have its attributes changed.
 
 
 ---------------------------------------------------------------------
