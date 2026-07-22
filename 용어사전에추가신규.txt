@@ -1,5 +1,61 @@
 
 
+
+------------------------------------------------
+
+module.parent 가 node.js에서 의미하는 거? -->
+
+module.parent는 현재 자바스크립트 파일(모듈)을 불러온(require 한) 부모 모듈이 누구인지 알려주는 객체입니다. [1] 
+Node.js의 CommonJS 모듈 시스템에서 파일 간의 부모-자식 관계를 추적할 때 사용됩니다. [1, 2] 
+
+## 🔑 핵심 의미와 값의 형태
+
+   1. 다른 파일이 이 파일을 불러왔을 때 (자식 모듈일 때)
+   * module.parent에는 이 파일을 require()한 부모 파일의 정보(파일명, 경로 등)가 객체 형태로 담깁니다. [1, 3] 
+   2. 이 파일이 터미널에서 직접 실행되었을 때 (메인 파일일 때)
+   * 이 파일을 불러온 부모가 없으므로 module.parent는 null이 됩니다. [1, 4] 
+   
+
+## 🔄 주된 활용 시나리오: "직접 실행" vs "모듈로 가져오기" 구분
+과거 Node.js 개발자들은 이 속성을 주로 "이 파일이 터미널에서 독립적으로 실행된 건지, 아니면 다른 파일에 부품(모듈)으로 호출된 건지" 판별하기 위해 사용했습니다.
+
+// foo.jsfunction myFunction() {
+  console.log("기능 실행!");
+}
+if (!module.parent) {
+  // 1. 부모가 없다면? 터미널에서 `node foo.js`로 직접 실행한 경우입니다.
+  // 보통 테스트 목적이나 초기화 코드를 여기서 실행합니다.
+  console.log("터미널에서 직접 실행되었습니다.");
+  myFunction();
+} else {
+  // 2. 부모가 있다면? 다른 파일(예: app.js)에서 require('./foo')를 한 경우입니다.
+  // 이때는 외부에서 호출해서 쓸 수 있게 함수만 내보냅니다.
+  module.exports = myFunction;
+}
+
+
+## ⚠️ 중요: 현재는 Deprecated (사용 중단 권장)
+module.parent는 순환 참조(Circular Dependency) 상황에서 정확한 부모를 짚지 못하는 등의 한계가 있어, 최신 Node.js 환경에서는 보안 및 기술적 이유로 Deprecated(사용 중단) 되었습니다. [5] 
+따라서 동일한 목적을 구현할 때는 다음과 같은 최신 표준 방식을 사용하는 것을 강력히 권장합니다.
+## 💡 최신 Node.js 대체 코드
+
+* CommonJS 방식 (require 사용 시):
+require.main 객체와 현재 모듈 객체(module)가 일치하는지 비교합니다.
+
+if (require.main === module) {
+  console.log("이 파일이 직접 실행되었습니다.");
+}
+
+* ES 모듈 방식 (import 사용 시):
+
+import process from 'node:process';import { pathToFileURL } from 'node:url';
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  console.log("이 파일이 직접 실행되었습니다.");
+}
+
+
+
+
 ------------------------------------------------
 
 hash({ password: 'foobar' }, function (err, pass, salt, hash) {
