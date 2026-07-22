@@ -1,6 +1,8 @@
 
 
+https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know-to-use-nodejs
 
+수업 클래스까지 넣음
 
 
 
