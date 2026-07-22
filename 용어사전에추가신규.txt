@@ -4,7 +4,21 @@
 
 
 
+---------------------------------------------------------------------
 
+
+When the grammar forbids line terminators in some place but a line terminator is found, a semicolon is inserted. These places include:
+
+expr <here> ++, expr <here> --
+continue <here> lbl
+break <here> lbl
+return <here> expr
+throw <here> expr
+yield <here> expr
+yield <here> * expr
+(param) <here> => {}
+async <here> function, async <here> prop(), async <here> function*, async <here> *prop(), async <here> (param) <here> => {}
+using <here> id, await <here> using <here> id
 
 
 
