@@ -313,9 +313,6 @@ app.post('/api/users', (req, res) => {
 
 
 
-                if (result) {
-                    console.dir(result);
-
 app.listen(3000, () => {
     console.log('3000번 포트에서 듣기');
 });
