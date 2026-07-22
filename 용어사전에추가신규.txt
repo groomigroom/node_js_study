@@ -2,6 +2,76 @@
 
 ------------------------------------------------
 
+hash({ password: 'foobar' }, function (err, pass, salt, hash) {
+  if (err) throw err;
+  // store the salt & hash in the "db"
+  users.tj.salt = salt;
+  users.tj.hash = hash;
+}); 위 node.js를 문법 하나씩 해석해줘 -->
+
+
+제공해주신 코드는 사용자의 비밀번호를 안전하게 암호화(해싱)한 뒤, 앞서 생성한 임시 데이터베이스(users.tj)에 그 결과를 저장하는 로직입니다.
+문법을 한 줄씩, 그리고 구성 요소별로 쪼개서 아주 쉽게 해석해 드리겠습니다.
+
+## 1. hash({ password: 'foobar' }, function (err, pass, salt, hash) { ... })
+
+* hash(...): 암호화를 수행하는 함수를 호출하는 것입니다. (Node.js 기본 함수는 아니며, 외부 라이브러리나 직접 정의한 커스텀 함수입니다.)
+* { password: 'foobar' }: 함수의 첫 번째 인자입니다. 암호화할 원본 비밀번호('foobar')를 객체 형태로 전달하고 있습니다.
+* function (err, pass, salt, hash) { ... }: 함수의 두 번째 인자이자 콜백(Callback) 함수입니다. 암호화 작업이 끝난 뒤 실행될 처리 로직을 정의합니다. [1] 
+
+## 💡 콜백 함수의 인자(매개변수) 4개 의미:
+
+   1. err: 암호화 과정 중 발생한 에러 정보가 담깁니다. (성공 시 null 또는 undefined)
+   2. pass: 입력했던 원본 비밀번호('foobar')가 그대로 전달됩니다.
+   3. salt: 비밀번호 유출을 막기 위해 무작위로 생성된 소금(Salt) 같은 임의의 문자열입니다.
+   4. hash: 원본 비밀번호와 Salt가 합쳐져 암호화된 최종 결과물(해시값)입니다. [2, 3] 
+
+
+## 2. if (err) throw err;
+
+* if (err): 에러가 발생했는지 조건문으로 확인합니다. JavaScript에서 err에 값이 있으면 참(True)으로 인식합니다.
+* throw err;: 에러가 존재한다면 예외(Exception)를 던지고 프로그램 실행을 강제로 중단합니다. 에러가 없다면 이 줄은 건너뛰고 아래로 내려갑니다.
+
+
+## 3. users.tj.salt = salt;
+
+* users.tj: 앞서 선언했던 대형 객체 내부의 tj 사용자 정보 객체({ name: 'tj' })를 가리킵니다.
+* .salt = salt;: tj 객체 안에 salt라는 새로운 프로퍼티(Key)를 만들고, 암호화 함수가 만들어준 무작위 문자열(salt 값)을 대입(저장)합니다.
+
+
+## 4. users.tj.hash = hash;
+
+* .hash = hash;: 마찬가지로 tj 객체 안에 hash라는 새로운 프로퍼티(Key)를 만들고, 최종 암호화된 비밀번호 문자열(hash 값)을 대입(저장)합니다.
+
+
+## 🔍 실행 후 users 객체의 최종 변화
+이 코드가 정상적으로 실행되고 나면, 메모리에 있던 users 객체는 아래와 같이 업데이트됩니다. (이해를 돕기 위한 예시 데이터입니다.)
+
+// 실행 전var users = {
+  tj: { name: 'tj' }
+};
+// 실행 후 (salt와 hash가 추가됨)var users = {
+  tj: { 
+    name: 'tj',
+    salt: 'f83kd92js...',  // 무작위 문자열
+    hash: 'a9c8b7e6d...'   // foobar가 암호화된 문자열
+  }
+};
+
+이렇게 원본 비밀번호(foobar) 대신 salt와 hash만 저장하는 것이 현대 웹 보안의 표준 기법입니다. 나중에 사용자가 로그인할 때 입력한 비밀번호를 똑같은 salt로 다시 암호화해서, 저장된 hash와 일치하는지 비교하는 방식으로 인증하게 됩니다.
+이 암호화 과정과 관련해서 더 알고 싶은 부분이 있으신가요?
+
+* 이 암호화 함수가 내부적으로 사용하는 Node.js 기본 내장 모듈(crypto)의 pbkdf2나 bcrypt 라이브러리에 대해 궁금하신가요?
+* 이렇게 저장된 데이터를 바탕으로 사용자가 로그인할 때 비밀번호를 검증(비교)하는 라우터 코드가 필요하신가요?
+
+
+[1] [https://devkimc.tistory.com](https://devkimc.tistory.com/31)
+[2] [https://labex.io](https://labex.io/ko/tutorials/kali-john-the-ripper-and-password-salting-594205)
+[3] [https://bugoverdose.github.io](https://bugoverdose.github.io/development/hashing-password-with-salt/)
+
+
+------------------------------------------------
+
 var users = {
   tj: { name: 'tj' }
 }; 가 node.js에서 의미하는 거? -->
