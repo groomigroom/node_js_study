@@ -14,6 +14,25 @@
 
 
 
+---------------------------------------------------------------------
+
+
+Escape sequences
+Special characters can be encoded using escape sequences:
+
+Escape sequence	Unicode code point
+\0	null character (U+0000 NULL)
+\'	single quote (U+0027 APOSTROPHE)
+\"	double quote (U+0022 QUOTATION MARK)
+\\	backslash (U+005C REVERSE SOLIDUS)
+\n	newline (U+000A LINE FEED; LF)
+\r	carriage return (U+000D CARRIAGE RETURN; CR)
+\v	vertical tab (U+000B LINE TABULATION)
+\t	tab (U+0009 CHARACTER TABULATION)
+\b	backspace (U+0008 BACKSPACE)
+\f	form feed (U+000C FORM FEED)
+\ followed by a line terminator	empty string
+
 
 
 ---------------------------------------------------------------------
