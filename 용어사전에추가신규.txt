@@ -1,5 +1,12 @@
 
 
+
+---------------------------------------------------------------------
+
+function import() {} // Illegal: import is a reserved word.
+
+---------------------------------------------------------------------
+
 const obj = { key: "value" }; // Object keys
 // Class declaration
 class C {
