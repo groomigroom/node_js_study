@@ -3,11 +3,37 @@
 
 
 
+---------------------------------------------------------------------
 
 
 
 
+If there is a constructor present in the subclass, it needs to first call super() before using this. The super keyword can also be used to call corresponding methods of super class.
 
+js
+
+Copy
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Lion extends Cat {
+  speak() {
+    super.speak();
+    console.log(`${this.name} roars.`);
+  }
+}
+
+const l = new Lion("Fuzzy");
+l.speak();
+// Fuzzy makes a noise.
+// Fuzzy roars.
 
 
 
