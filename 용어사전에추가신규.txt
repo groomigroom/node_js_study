@@ -8,6 +8,29 @@
 
 
 
+
+
+
+
+
+
+---------------------------------------------------------------------
+
+Regular expression literals
+Regular expression literals are enclosed by two forward slashes (/). The lexer consumes all characters up to the next unescaped forward slash or the end of the line, unless the forward slash appears within a character class ([]). Some characters (namely, those that are identifier parts) can appear after the closing slash, denoting flags.
+
+The lexical grammar is very lenient: not all regular expression literals that get identified as one token are valid regular expressions.
+
+See also RegExp for more information.
+
+js
+
+Copy
+/ab+c/g;
+/[/]/;
+
+
+
 ---------------------------------------------------------------------
 
 The last escape sequence, \ followed by a line terminator, is useful for splitting a string literal across multiple lines without changing its meaning.
