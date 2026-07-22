@@ -9,6 +9,20 @@
 
 
 
+---------------------------------------------------------------------
+
+
+Automatic semicolon insertion
+Some JavaScript statements' syntax definitions require semicolons (;) at the end. They include:
+
+var, let, const, using, await using
+Expression statements
+do...while
+continue, break, return, throw
+debugger
+Class field declarations (public or private)
+import, export
+
 
 
 
