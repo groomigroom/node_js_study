@@ -3,6 +3,33 @@
 
 
 
+---------------------------------------------------------------------
+
+implements
+interface
+package
+private
+protected
+public
+Future reserved words in older standards
+The following are reserved as future keywords by older ECMAScript specifications (ECMAScript 1 till 3).
+
+abstract
+boolean
+byte
+char
+double
+final
+float
+goto
+int
+long
+native
+short
+synchronized
+throws
+transient
+volatile
 
 
 ---------------------------------------------------------------------
