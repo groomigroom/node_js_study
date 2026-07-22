@@ -376,6 +376,10 @@ app.delete('/user', (req, res) => {
 위에서 post 방식 빼고 나머지 3가지 찾기 ---- https://expressjs.com/en/5x/starter/basic-routing/
 
 
-연구하기
+연구하기 아래꺼
 
 https://expressjs.com/en/5x/starter/static-files/
+
+연구하기 아래꺼
+
+https://expressjs.com/en/5x/starter/examples/
