@@ -1,3 +1,14 @@
+
+
+const obj = { key: "value" }; // Object keys
+// Class declaration
+class C {
+  #priv = "value"; // Private field
+}
+lbl: console.log(1); // Label
+
+----------------------------------------------------------------------------------------
+
 https://github.com/expressjs/express/blob/master/examples/auth/index.js
 의 82번줄 보고 있음....
 
