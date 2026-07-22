@@ -4,6 +4,24 @@
 
 
 
+
+
+
+
+---------------------------------------------------------------------
+
+Note that ASI would only be triggered if a line break separates tokens that would otherwise produce invalid syntax. If the next token can be parsed as part of a valid structure, semicolons would not be inserted. For example:
+
+js
+
+Copy
+const a = 1
+(1).toString()
+
+const b = 1
+[1, 2, 3].forEach(console.log)
+
+
 ---------------------------------------------------------------------
 
 
