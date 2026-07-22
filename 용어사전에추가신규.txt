@@ -9,6 +9,29 @@
 
 
 
+
+
+---------------------------------------------------------------------
+
+
+
+Numeric coercion
+There are two numeric types: Number and BigInt. Sometimes the language specifically expects a number or a BigInt (such as Array.prototype.slice(), where the index must be a number); other times, it may tolerate either and perform different operations depending on the operand's type. For strict coercion processes that do not allow implicit conversion from the other type, see number coercion and BigInt coercion.
+
+Numeric coercion is nearly the same as number coercion, except that BigInts are returned as-is instead of causing a TypeError. Numeric coercion is used by all arithmetic operators, since they are overloaded for both numbers and BigInts. The only exception is unary plus, which always does number coercion.
+
+Other coercions
+All data types, except Null, Undefined, and Symbol, have their respective coercion process. See string coercion, boolean coercion, and object coercion for more details.
+
+As you may have noticed, there are three distinct paths through which objects may be converted to primitives:
+
+Primitive coercion: [Symbol.toPrimitive]("default") → valueOf() → toString()
+Numeric coercion, number coercion, BigInt coercion: [Symbol.toPrimitive]("number") → valueOf() → toString()
+String coercion: [Symbol.toPrimitive]("string") → toString() → valueOf()
+In all cases, [Symbol.toPrimitive](), if present, must be callable and return a primitive, while valueOf or toString will be ignored if they are not callable or return an object. At the end of the process, if successful, the result is guaranteed to be a primitive. The resulting primitive is then subject to further coercions depending on the context.
+
+
+
 ---------------------------------------------------------------------
 
 Type coercion
