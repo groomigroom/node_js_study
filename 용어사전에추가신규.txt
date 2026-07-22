@@ -3,6 +3,22 @@
 
 
 
+
+
+
+
+
+
+---------------------------------------------------------------------
+
+Type coercion
+As mentioned above, JavaScript is a weakly typed language. This means that you can often use a value of one type where another type is expected, and the language will convert it to the right type for you. To do so, JavaScript defines a handful of coercion rules.
+
+Primitive coercion
+The primitive coercion process is used where a primitive value is expected, but there's no strong preference for what the actual type should be. This is usually when a string, a number, or a BigInt are equally acceptable. For example:
+
+The Date() constructor, when it receives one argument that's not a Date instance — strings represent date strings, while numbers represent timestamps.
+
 ---------------------------------------------------------------------
 
 Dates
