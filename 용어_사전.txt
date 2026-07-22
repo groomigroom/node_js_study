@@ -13,6 +13,19 @@ node.js 환경에서 mysql.createPool 내부의 connectionLimit: 10은 동시에
 
 ---------------------------
 
+console.dir() -->
+Node.js에서 console.dir()은 자바스크립트 객체의 속성을 계층적이고 상세한 트리 구조로 출력하는 메서드입니다.
+문자열로 단순하게 변환([object Object])하는 console.log()와 달리, console.dir()을 사용하면 객체의 내부 구조, 숨겨진 속성(non-enumerable),
+그리고 프로토타입 체인까지 정확하게 파악할 수 있어 객체 디버깅에 매우 유용합니다.
+주요 활용법
+기본 출력: console.dir(object) 형태로 객체를 인자로 전달합니다.
+숨김 속성 및 깊이 설정: 두 번째 인자로 옵션 객체를 전달할 수 있습니다.
+{ showHidden: true }: 열거할 수 없는 속성이나 Symbol 값까지 출력합니다.
+{ depth: 2 }: 중첩된 객체의 표시 깊이를 설정합니다 (기본값: 2).
+
+
+---------------------------
+
 express.urlencoded -->
 express.urlencoded()는 클라이언트가 웹 브라우저의 HTML <form>을 통해 전송한 URL-encoded 형식의 POST 데이터를 파싱(해석)하여,
 서버 측에서 req.body 객체로 접근할 수 있게 해주는 미들웨어입니다.
