@@ -355,3 +355,22 @@ app.post('/api/users', (req, res) => {
 npx express-generator my-app --view=ejs
 
 ????
+
+
+app.get('/', (req, res) => {
+    res.send('김구름이');
+});
+
+app.post('/', (req, res) => {
+    res.send('post 방식');
+});
+
+app.put('/user', (req, res) => {
+    res.send('/user에서의 put 방식');
+});
+
+app.delete('/user', (req, res) => {
+    res.send('/user에서의 delete 방식');
+});
+
+위에서 post 방식 빼고 나머지 3가지 찾기 ---- https://expressjs.com/en/5x/starter/basic-routing/
