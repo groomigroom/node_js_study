@@ -10,6 +10,20 @@
 
 ---------------------------------------------------------------------
 
+It is seen as:
+
+js
+
+Copy
+class A {
+  a = 1 * gen() {}
+}
+
+
+
+
+---------------------------------------------------------------------
+
 Note that ASI would only be triggered if a line break separates tokens that would otherwise produce invalid syntax. If the next token can be parsed as part of a valid structure, semicolons would not be inserted. For example:
 
 js
