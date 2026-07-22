@@ -6,6 +6,15 @@
 
 
 
+
+
+
+---------------------------------------------------------------------
+
+
+NaN ("Not a Number") is a special kind of number value that's typically encountered when the result of an arithmetic operation cannot be expressed as a number. It is also the only value in JavaScript that is not equal to itself.
+
+
 ---------------------------------------------------------------------
 
 
