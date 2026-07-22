@@ -11,6 +11,26 @@
 
 
 
+
+
+---------------------------------------------------------------------
+
+Field declarations
+With the class field declaration syntax, the constructor example can be written as:
+
+js
+
+Copy
+class Rectangle {
+  height = 0;
+  width;
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+
 ---------------------------------------------------------------------
 
 
