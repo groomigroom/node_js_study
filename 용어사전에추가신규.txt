@@ -3,6 +3,27 @@
 
 
 
+---------------------------------------------------------------------
+
+Dates
+JavaScript provides two sets of APIs for representing dates: the legacy Date object and the modern Temporal object. Date has many undesirable design choices and should be avoided in new code if possible.
+
+Indexed collections: Arrays and typed Arrays
+Arrays are regular objects for which there is a particular relationship between integer-keyed properties and the length property.
+
+Additionally, arrays inherit from Array.prototype, which provides a handful of convenient methods to manipulate arrays. For example, indexOf() searches a value in the array and push() appends an element to the array. This makes Arrays a perfect candidate to represent ordered lists.
+
+Typed Arrays present an array-like view of an underlying binary data buffer, and offer many methods that have similar semantics to the array counterparts. "Typed array" is an umbrella term for a range of data structures, including Int8Array, Float32Array, etc. Check the typed array page for more information. Typed arrays are often used in conjunction with ArrayBuffer and DataView.
+
+Keyed collections: Maps, Sets, WeakMaps, WeakSets
+These data structures take object references as keys. Set and WeakSet represent a collection of unique values, while Map and WeakMap represent a collection of key-value associations.
+
+You could implement Maps and Sets yourself. However, since objects cannot be compared (in the sense of < "less than", for instance), neither does the engine expose its hash function for objects, look-up performance would necessarily be linear. Native implementations of them (including WeakMaps) can have look-up performance that is approximately logarithmic to constant time.
+
+Usually, to bind data to a DOM node, one could set properties directly on the object, or use data-* attributes. This has the downside that the data is available to any script running in the same context. Maps and WeakMaps make it easy to privately bind data to an object.
+
+WeakMap and WeakSet only allow garbage-collectable values as keys, which are either objects or non-registered symbols, and the keys may be collected even when they remain in the collection. They are specifically used for memory usage optimization.
+
 
 ---------------------------------------------------------------------
 
