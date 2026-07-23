@@ -36,40 +36,6 @@ Timers까지 넣음
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-settimeout
-
-Ad
-
-
-
-CSS
-
-JavaScript
-
-Web APIs
-
-All
-
-Learn
-
-Tools
-
-About
-Blog
-
-Log in
-Web
-Web APIs
-Window
-setTimeout()
-
-Theme
-
-English (US)
-Window: setTimeout() method
-Baseline Widely available *
-Warning: When the code parameter is used, this method dynamically executes its value as JavaScript. APIs like this are known as injection sinks, and are potentially a vector for cross-site-scripting (XSS) attacks.
-
 윈도우 인터페이스의 setTimeout() 메서드는 타이머가 만료되면 기능이나 지정된 코드 조각을 실행하는 타이머를 설정합니다.
 
 setTimeout(code)
