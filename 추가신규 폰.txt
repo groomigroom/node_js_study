@@ -1,14 +1,1 @@
-window까지 63번줄까지삭제
 
-Baseline Widely available *
-Warning: When the code parameter is used, this method dynamically executes its value as JavaScript. APIs like this are known as injection sinks, and are potentially a vector for cross-site-scripting (XSS) attacks.
-위에 71번줆까지 삭제
-
-
-아래꺼 75번줄
-
-The setTimeout() method of the Window interface sets a timer which executes a function or specified piece of code once the timer expires.
-
-윈도우 인터페이스의 setTimeout() 메서드는 타이머가 만료되면 기능이나 지정된 코드 조각을 실행하는 타이머를 설정합니다.
-
-92번줄 뭐 settime 나오기 전까지는 이제 삭제
