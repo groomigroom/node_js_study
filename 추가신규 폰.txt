@@ -62,11 +62,8 @@ lbl: console.log(1); // Label
 
 
 
-
-protected
 public
 abstract
-boolean
 byte
 char
 double
@@ -97,25 +94,15 @@ export
 extends
 false
 finally
-for
 function
-if
 import
-in
-instanceof
 new
-null
-return
 super
 switch
 this
 throw
 true
 try
-typeof
-var
-void
-while
 with
 
 let
