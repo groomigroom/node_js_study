@@ -68,27 +68,7 @@ let x = 1;let y = 2;
 [x, y] = [y, x]; // 임시 변수 없이 값을 바꿉니다.
 console.log(x); // 2
 
-------------------------------
-구조분해 할당을 실무 코드나 특정 프레임워크(React 등)에서 어떻게 활용하는지 더 알고 싶으신가요?
-원하신다면 다음 내용을 더 자세히 설명해 드릴 수 있습니다:
 
-* React의 useState 구조분해 원리
-* 중첩된 복잡한 객체 분해 방법
-* 나머지 매개변수(...rest)와 함께 쓰는 법 [11, 12] 
-
-
-[1] [https://developer.mozilla.org](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring)
-[2] [https://goldenrabbit.co.kr](https://goldenrabbit.co.kr/articles/zpzyvmC33cdU2prIcCaF)
-[3] [https://ko.javascript.info](https://ko.javascript.info/destructuring-assignment)
-[4] [https://joshua1988.github.io](https://joshua1988.github.io/es6-online-book/destructuring.html)
-[5] [https://hoya-kim.github.io](https://hoya-kim.github.io/2021/07/19/destructuring-assignment/)
-[6] [https://m.blog.naver.com](https://m.blog.naver.com/wideeyed/221818180319)
-[7] [https://ko.javascript.info](https://ko.javascript.info/destructuring-assignment)
-[8] [https://chanhuiseok.github.io](https://chanhuiseok.github.io/posts/js-10/)
-[9] [https://m.blog.naver.com](https://m.blog.naver.com/wideeyed/221818180319)
-[10] [https://developer.mozilla.org](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring)
-[11] [https://medium.com](https://medium.com/@possessor_view/react%EC%97%90%EC%84%9C%EC%9D%98-js-%EB%AC%B8%EB%B2%95-020345581070)
-[12] [https://ko.javascript.info](https://ko.javascript.info/destructuring-assignment)
 
 
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
