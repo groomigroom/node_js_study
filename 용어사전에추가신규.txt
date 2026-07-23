@@ -18,6 +18,29 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 ---------------------------------------------------------------------
 
 
+
+
+
+---------------------------------------------------------------------
+
+function getThis() {
+  return this;
+}
+
+const obj1 = { name: "obj1" };
+const obj2 = { name: "obj2" };
+
+obj1.getThis = getThis;
+obj2.getThis = getThis;
+
+console.log(obj1.getThis()); // { name: 'obj1', getThis: [Function: getThis] }
+console.log(obj2.getThis()); // { name: 'obj2', getThis: [Function: getThis] }
+
+
+
+---------------------------------------------------------------------
+
+
 this
 Baseline Widely available
 The this keyword refers to the context where a piece of code, such as a function's body, is supposed to run. Most typically, it is used in object methods, where this refers to the object that the method is attached to, thus allowing the same method to be reused on different objects.
