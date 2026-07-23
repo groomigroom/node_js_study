@@ -5,6 +5,20 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 수업 클래스까지 넣음
 
 
+
+
+
+
+
+---------------------------------------------------------------------
+
+const square = function (number) {
+  return number * number;
+};
+
+console.log(square(4)); // 16
+
+
 ---------------------------------------------------------------------
 
 
