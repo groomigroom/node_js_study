@@ -1,3 +1,21 @@
+%s -->
+Node.js에서도 동일하게 %s를 사용할 수 있습니다.
+console.log()는 내부적으로 Node.js의 util.format() 메소드를 사용하므로,
+C언어의 printf 스타일처럼 문자열 치환(Format Specifier)을 지원합니다. 
+사용 가능한 주요 치환자
+%s: 문자열(String)로 변환되어 삽입됩니다.
+%d 또는 %i: 숫자(Integer/Number)로 변환되어 삽입됩니다.
+%j: JSON 객체 문자열로 변환되어 삽입됩니다.
+%o 또는 %O: 객체(Object)의 모든 속성을 트리 형태로 출력합니다.
+현대 Node.js에서의 대체 방법 (추천)
+요즘은 %s 대신 ES6에서 도입된 템플릿 리터럴(Template Literal)을 더 자주 사용합니다. 가독성이 좋고 오타를 줄일 수 있습니다.
+javascript
+// 백틱(`)과 ${}를 사용한 방식
+if (!module.parent) console.log(`authenticating ${name}:${pass}`);
+코드를 사용할 때는 주의가 필요합니다.
+
+---------------------------
+
 사용자 영역 마이그레이션
 코딩에서 마이그레이션(Migration)이란 기존의 소프트웨어, 데이터, 프레임워크 등을
 더 최신의 버전이나 새로운 시스템 환경으로 옮기는 작업을 뜻합니다.
