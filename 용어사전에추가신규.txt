@@ -19,6 +19,10 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 ---------------------------------------------------------------------
 
+console.log(typeof getThisStrict()); // "undefined"
+
+---------------------------------------------------------------------
+
 function getThisStrict() {
   "use strict"; // Enter strict mode
   return this;
