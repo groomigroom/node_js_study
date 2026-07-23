@@ -19,6 +19,17 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 ---------------------------------------------------------------------
 
+class C {
+  instanceField = this;
+  static staticField = this;
+}
+
+const c = new C();
+console.log(c.instanceField === c); // true
+console.log(C.staticField === C); // true
+
+---------------------------------------------------------------------
+
 super
 When a function is invoked in the super.method() form, the this inside the method function is the same value as the this value around the super.method() call, and is generally not equal to the object that super refers to. This is because super.method is not an object member access like the ones above — it's a special syntax with different binding rules. For examples, see the super reference.
 
