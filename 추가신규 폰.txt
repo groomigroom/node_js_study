@@ -166,3 +166,71 @@ yield <here> * expr
 (param) <here> => {}
 async <here> function, async <here> prop(), async <here> function*, async <here> *prop(), async <here> (param) <here> => {}
 using <here> id, await <here> using <here> id
+
+
+---------------------------------------------------------------------
+
+{}
+객체 초기화/리터럴 구문.
+
+
+
+this
+이 this키워드는 실행 컨텍스트의 특수한 속성을 나타냅니다.
+
+Literals
+기본 null, 불리언, 숫자 및 문자열 리터럴.
+
+
+
+
+---------------------------------------------------------------------
+
+
+
+using resource
+  = acquireResource()
+
+
+---------------------------------------------------------------------
+
+
+async function
+foo() {}
+
+
+---------------------------------------------------------------------
+
+
+outerBlock: {
+  innerBlock: {
+    break outerBlock
+  }
+}
+
+
+---------------------------------------------------------------------
+
+
+
+js
+
+Copy
+class A {
+  a = 1 * gen() {}
+}
+
+---------------------------------------------------------------------
+
+
+
+js
+
+Copy
+const a = 1
+(1).toString()
+
+const b = 1
+[1, 2, 3].forEach(console.log)
+
+
