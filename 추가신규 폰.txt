@@ -60,10 +60,7 @@ lbl: console.log(1); // Label
 
 ----------------------------------------------------------------
 
-else
-export
-extends
-false
+
 finally
 function
 import
