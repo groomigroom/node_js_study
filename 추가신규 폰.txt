@@ -60,12 +60,6 @@ lbl: console.log(1); // Label
 
 ----------------------------------------------------------------
 
-
-continue
-debugger
-default
-delete
-do
 else
 export
 extends
