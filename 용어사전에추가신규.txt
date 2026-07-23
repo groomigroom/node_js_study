@@ -13,10 +13,15 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 
 
-
 ---------------------------------------------------------------------
 
 
+
+---------------------------------------------------------------------
+
+const globalObject = this;
+const foo = () => this;
+console.log(foo() === globalObject); // true
 
 ---------------------------------------------------------------------
 
