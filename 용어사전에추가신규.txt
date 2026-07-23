@@ -11324,15 +11324,6 @@ Inpa Dev 👨‍💻
 secret: 'shhhh, very secret'이 node.js express-session에서 의미하는 거? -->
 
 
-AI 모드
-전체
-동영상
-쇼핑
-이미지
-뉴스
-짧은 동영상
-더보기
-도구
 다음에 대한 검색 결과 표시 중 secret: 'shhh, very secret 이 node.js express-session에서 의미하는 거?
 처음에 검색한 결과 secret: 'shhhh, very secret'이 node.js express-session에서 의미하는 거?
 AI 개요
@@ -11422,7 +11413,13 @@ var app = module.exports = express(); -->
 
 'express-session' -->
 
-express-session은 Node.js의 Express 프레임워크에서 세션(Session) 데이터를 쉽게 생성하고 관리할 수 있게 해주는 미들웨어입니다. 주로 로그인 상태 유지나 사용자별 맞춤 데이터를 서버 메모리(또는 DB)에 안전하게 저장할 때 사용됩니다.가장 핵심적인 역할은 다음과 같습니다.세션 쿠키 발급: 사용자가 로그인하면 서버가 임의의 문자열(세션 ID)을 쿠키로 클라이언트에게 보냅니다.사용자 식별: 사용자가 다음 요청을 보낼 때 이 쿠키를 서버에 전달하며, 서버는 세션 ID를 통해 해당 사용자를 기억합니다.데이터 유지: req.session 객체를 통해 요청(Request)마다 특정 사용자의 데이터를 서버 측에 저장하고 불러올 수 있습니다.
+express-session은 Node.js의 Express 프레임워크에서 세션(Session) 데이터를 쉽게 생성하고 관리할 수 있게 해주는 미들웨어입니다.
+주로 로그인 상태 유지나 사용자별 맞춤 데이터를 서버 메모리(또는 DB)에 안전하게 저장할 때 사용됩니다.
+가장 핵심적인 역할은 다음과 같습니다.
+세션 쿠키 발급: 사용자가 로그인하면 서버가 임의의 문자열(세션 ID)을 쿠키로 클라이언트에게 보냅니다.
+사용자 식별: 사용자가 다음 요청을 보낼 때 이 쿠키를 서버에 전달하며,
+서버는 세션 ID를 통해 해당 사용자를 기억합니다.
+데이터 유지: req.session 객체를 통해 요청(Request)마다 특정 사용자의 데이터를 서버 측에 저장하고 불러올 수 있습니다.
 
 
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
