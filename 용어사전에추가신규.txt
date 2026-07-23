@@ -18,9 +18,167 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 
 
+
+
+
+
+
+
+
 ------------------------------------------------------------------------------------------------------------------------------
 
 
+
+------------------------------------------------------------------------------------------------------------------------------
+
+async
+Skip to main content
+Skip to search
+Learn frontend, backend, and AI from our course partner Scrimba
+
+
+HTML
+
+CSS
+
+JavaScript
+
+Web APIs
+
+All
+
+Learn
+
+Tools
+
+About
+Blog
+
+Log in
+Learn
+Extension modules
+Asynchronous JavaScript
+
+Theme
+
+English (US)
+Asynchronous JavaScript
+Overview: Extension modules
+Next
+In this module, we take a look at asynchronous JavaScript, why it is important, and how it can be used to effectively handle potential blocking operations, such as fetching resources from a server.
+
+In this article
+Prerequisites
+Tutorials and challenges
+See also
+WorkOS
+Ship enterprise features in days.
+SSO, SCIM, RBAC, Audit Logs, and more. The infrastructure B2B companies use to sell to enterprise.
+Get started
+Ad
+Prerequisites
+Asynchronous JavaScript is a fairly advanced topic, and you are advised to work through Dynamic scripting with JavaScript modules before attempting this.
+
+Note: If you are working on a computer, tablet, or another device where you can't create files, you can try running the code in an online editor such as CodePen or JSFiddle.
+
+Tutorials and challenges
+Introducing asynchronous JavaScript
+In this article, we'll learn about synchronous and asynchronous programming, why we often need to use asynchronous techniques, and the problems related to the way asynchronous functions have historically been implemented in JavaScript.
+
+How to use promises
+Here we'll introduce promises and show how to use promise-based APIs. We'll also introduce the async and await keywords.
+
+Implementing a promise-based API
+This article will outline how to implement your own promise-based API.
+
+Introducing workers
+Workers enable you to run certain tasks in a separate thread to keep your main code responsive. In this article, we'll rewrite a long-running synchronous function to use a worker.
+
+Sequencing animations Challenge
+This challenge asks you to use promises to play a set of animations in a particular sequence.
+
+See also
+Asynchronous Programming from the fantastic Eloquent JavaScript online book by Marijn Haverbeke.
+Overview: Extension modules
+Next
+Help improve MDN
+
+Was this page helpful to you?
+
+Yes
+
+No
+Learn how to contribute
+This page was last modified on Jul 3, 2025 by MDN contributors.
+
+View this page on GitHub • Report a problem with this content
+Filter sidebar
+Filter
+Learn web development
+MDN curriculum
+Getting started modules
+Environment setup
+Your first website
+Web standards
+Soft skills
+Core modules
+Structuring content with HTML
+CSS styling basics
+CSS text styling
+CSS layout
+Dynamic scripting with JavaScript
+JavaScript frameworks and libraries
+Accessibility
+Design for developers
+Version control
+Extension modules
+Advanced JavaScript objects
+Client-side web APIs
+Asynchronous JavaScript
+Introduction
+Using promises
+Implementing promise-based APIs
+Introducing workers
+Challenge: Animation sequence
+Web forms
+Understanding client-side tools
+Server-side websites
+Web performance
+Testing
+Further resources
+How to solve common problems
+About
+Resources for educators
+Changelog
+WorkOS Homepage Bottom Banner
+Ad
+Your blueprint for a better internet.
+
+MDN
+About
+Blog
+Mozilla careers
+Advertise with us
+MDN Plus
+Product help
+Contribute
+MDN Community
+Community resources
+Writing guidelines
+MDN Discord
+MDN on GitHub
+Developers
+Web technologies
+Learn web development
+Guides
+Tutorials
+Glossary
+Hacks blog
+Website Privacy Notice
+Telemetry Settings
+Legal
+Community Participation Guidelines
+Portions of this content are ©1998–2026 by individual mozilla.org contributors. Content available under a Creative Commons license.
 
 
 ------------------------------------------------------------------------------------------------------------------------------
