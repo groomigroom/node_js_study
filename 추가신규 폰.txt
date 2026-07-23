@@ -128,3 +128,26 @@ static
 await
 
 enum
+
+
+The last escape sequence, \ followed by a line terminator, is useful for splitting a string literal across multiple lines without changing its meaning.
+
+js
+
+Copy
+const longString =
+  "This is a very long string which needs \
+to wrap across multiple lines because \
+otherwise my code is unreadable.";
+Make sure there is no space or any other character after the backslash (except for a line break), otherwise it will not work. If the next line is indented, the extra spaces will also be present in the string's value.
+
+You can also use the + operator to append multiple strings together, like this:
+
+js
+
+Copy
+const longString =
+  "This is a very long string which needs " +
+  "to wrap across multiple lines because " +
+  "otherwise my code is unreadable.";
+
