@@ -12,10 +12,19 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 
 
-
 ---------------------------------------------------------------------
 
 
+
+
+---------------------------------------------------------------------
+
+Global context
+In the global execution context (outside of any functions or classes; may be inside blocks or arrow functions defined in the global scope), the this value depends on what execution context the script runs in. Like callbacks, the this value is determined by the runtime environment (the caller).
+
+At the top level of a script, this refers to globalThis whether in strict mode or not. This is generally the same as the global object — for example, if the source is put inside an HTML <script> element and executed as a script, this === window.
+
+Note: globalThis is generally the same concept as the global object (i.e., adding properties to globalThis makes them global variables) — this is the case for browsers and Node — but hosts are allowed to provide a different value for globalThis that's unrelated to the global object.
 
 ---------------------------------------------------------------------
 
