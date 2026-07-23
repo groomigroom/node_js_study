@@ -17,6 +17,17 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 
 
+---------------------------------------------------------------------
+
+function getThisStrict() {
+  "use strict"; // Enter strict mode
+  return this;
+}
+
+// Only for demonstration — you should not mutate built-in prototypes
+Number.prototype.getThisStrict = getThisStrict;
+console.log(typeof (1).getThisStrict()); // "number"
+
 
 
 ---------------------------------------------------------------------
