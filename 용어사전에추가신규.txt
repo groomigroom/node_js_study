@@ -37,14 +37,10 @@ Timers까지 넣음
 ------------------------------------------------------------------------------------------------------------------------------
 
 settimeout
-Skip to main content
-Skip to search
-Auth0 by Okta
-Secure auth in minutes. Auth0 provides a secure, reliable, & scalable identity foundation, so you can focus on building.
-Start Building
+
 Ad
 
-HTML
+
 
 CSS
 
