@@ -11,8 +11,8 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 ---------------------------------------------------------------------
 
-Binding this with instance and static methods
-When a static or instance method is called without a value for this, such as by assigning the method to a variable and then calling it, the this value will be undefined inside the method. This behavior is the same even if the "use strict" directive isn't present, because code within the class body is always executed in strict mode.
+인스턴스 및 정적 메서드와 바인딩하기
+메서드를 변수에 할당한 다음 메서드를 호출하는 등 정적 메서드나 인스턴스 메서드를 값 없이 호출하면 메서드 내부에서 이 값이 정의되지 않습니다. 클래스 본문 내의 코드는 항상 엄격 모드로 실행되기 때문에 "엄격한 사용" 지시가 없더라도 이 동작은 동일합니다.
 
 js
 
