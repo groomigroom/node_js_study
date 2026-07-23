@@ -6354,102 +6354,10 @@ No
 Learn how to contribute
 This page was last modified on May 21, 2026 by MDN contributors.
 
-View this page on GitHub • Report a problem with this content
-Filter sidebar
-Filter
-JavaScript
-Tutorials and guides
-JavaScript Guide
-Introduction
-Grammar and types
-Control flow and error handling
-Loops and iteration
-Functions
-Expressions and operators
-Numbers and strings
-Representing dates & times
-Regular expressions
-Indexed collections
-Keyed collections
-Working with objects
-Using classes
-Using promises
-JavaScript typed arrays
-Iterators and generators
-Resource management
-Internationalization
-JavaScript modules
-Intermediate
-Advanced
-References
-Built-in objects
-Expressions & operators
-Statements & declarations
-Functions
-Classes
-Regular expressions
-Errors
-Misc
-WorkOS Homepage Bottom Banner
-Ad
-Your blueprint for a better internet.
 
-MDN
-About
-Blog
-Mozilla careers
-Advertise with us
-MDN Plus
-Product help
-Contribute
-MDN Community
-Community resources
-Writing guidelines
-MDN Discord
-MDN on GitHub
-Developers
-Web technologies
-Learn web development
-Guides
-Tutorials
-Glossary
-Hacks blog
-Website Privacy Notice
-Telemetry Settings
-Legal
-Community Participation Guidelines
-Portions of this content are ©1998–2026 by individual mozilla.org contributors. Content available under a Creative Commons license.
 
 ---------------------------------------------------------------------
-Skip to main content
-Skip to search
-WorkOS
-The infrastructure B2B companies use to sell to enterprise. SSO, SCIM, RBAC, Audit Logs, and more. Ship it in days.
-Get Enterprise Ready
-Ad
 
-HTML
-
-CSS
-
-JavaScript
-
-Web APIs
-
-All
-
-Learn
-
-Tools
-
-About
-Blog
-
-Log in
-Web
-JavaScript
-Reference
-Functions
 Arrow function expressions
 
 Theme
@@ -8262,14 +8170,4 @@ BigInt	"bigint"	BigInt
 String	"string"	String
 Symbol	"symbol"	Symbol
 
-
----------------------------------------------------------------------
-
-
-...obj
-스프레드 구문은 배열이나 문자열과 같은 반복 가능한 객체를 함수 호출 시 인자가 0개 이상, 배열 리터럴 시 요소가 0개 이상 필요한 위치에서 확장할 수 있도록 합니다. 객체 리터럴에서 스프레드 구문은 객체의 속성을 열거하고 생성되는 객체에 키-값 쌍을 추가합니다.
-
-쉼표 연산자
-,
-쉼표 연산자를 사용하면 하나의 문장에서 여러 표현식을 평가할 수 있으며, 마지막 표현식의 결과를 반환합니다.
 
