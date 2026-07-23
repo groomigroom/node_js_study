@@ -62,8 +62,6 @@ lbl: console.log(1); // Label
 
 
 
-
-implements
 interface
 package
 private
