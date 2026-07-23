@@ -11377,21 +11377,10 @@ var users = {
 
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-%s
-
-AI 모드
-전체
-이미지
-동영상
-뉴스
-지도
-쇼핑
-도서
-금융
-
-사이트 1개
-네, Node.js에서도 동일하게 %s를 사용할 수 있습니다.
-console.log()는 내부적으로 Node.js의 util.format() 메소드를 사용하므로, C언어의 printf 스타일처럼 문자열 치환(Format Specifier)을 지원합니다. 
+%s -->
+Node.js에서도 동일하게 %s를 사용할 수 있습니다.
+console.log()는 내부적으로 Node.js의 util.format() 메소드를 사용하므로,
+C언어의 printf 스타일처럼 문자열 치환(Format Specifier)을 지원합니다. 
 사용 가능한 주요 치환자
 %s: 문자열(String)로 변환되어 삽입됩니다.
 %d 또는 %i: 숫자(Integer/Number)로 변환되어 삽입됩니다.
@@ -11403,11 +11392,8 @@ javascript
 // 백틱(`)과 ${}를 사용한 방식
 if (!module.parent) console.log(`authenticating ${name}:${pass}`);
 코드를 사용할 때는 주의가 필요합니다.
-앞으로 Node.js로 로그인이나 인증 로직을 구현하실 계획인가요? 더 궁금한 점이 있다면 다음 내용 중 어떤 것을 진행할지 말씀해 주세요.
-console.log 외에 더 디테일한 로깅 라이브러리(winston 등) 추천 받기
-module.parent 대체용 최신 ES 모듈(import.meta) 작성법 알아보기
-디버깅용 객체 출력(%o) 활용법 확인하기
-AI 대답에는 오류가 있을 수 있습니다. 자세히 알아보기
+
+
 
 
 
