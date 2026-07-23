@@ -5,6 +5,21 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 수업 클래스까지 넣음
 
 
+
+
+
+---------------------------------------------------------------------
+
+const getCode = (function () {
+  const apiCode = "0]Eal(eh&2"; // A code we do not want outsiders to be able to modify…
+
+  return function () {
+    return apiCode;
+  };
+})();
+
+console.log(getCode()); // "0]Eal(eh&2"
+
 ---------------------------------------------------------------------
 
 Immediately Invoked Function Expressions (IIFE)
