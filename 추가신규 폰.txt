@@ -60,11 +60,16 @@ lbl: console.log(1); // Label
 
 ----------------------------------------------------------------
 
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
 
-finally
-function
-import
-new
+const person1 = new Person("Alice", 25);
+console.log(person1.name); // Alice
+
+==================================================================
+
 super
 switch
 this
