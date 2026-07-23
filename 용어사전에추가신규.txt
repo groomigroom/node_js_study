@@ -7,6 +7,23 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 ---------------------------------------------------------------------
 
+Immediately Invoked Function Expressions (IIFE)
+An Immediately Invoked Function Expression (IIFE) is a code pattern that directly calls a function defined as an expression. It looks like this:
+
+js
+
+Copy
+(function () {
+  // Do something
+})();
+
+const value = (function () {
+  // Do something
+  return someValue;
+})();
+
+---------------------------------------------------------------------
+
 
 function walkTree(node) {
   if (node === null) {
