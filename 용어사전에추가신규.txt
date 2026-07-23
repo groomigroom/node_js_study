@@ -12,9 +12,49 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 
 
+
+
 ---------------------------------------------------------------------
 
 
+
+---------------------------------------------------------------------
+
+// In web browsers, the window object is also the global object:
+console.log(this === window); // true
+
+this.b = "MDN";
+console.log(window.b); // "MDN"
+console.log(b); // "MDN"
+If the source is loaded as a module (for HTML, this means adding type="module" to the <script> tag), this is always undefined at the top level.
+
+If the source is executed with eval(), this is the same as the enclosing context for direct eval, or globalThis (as if it's run in a separate global script) for indirect eval.
+
+js
+
+Copy
+function test() {
+  // Direct eval
+  console.log(eval("this") === this);
+  // Indirect eval, non-strict
+  console.log(eval?.("this") === globalThis);
+  // Indirect eval, strict
+  console.log(eval?.("'use strict'; this") === globalThis);
+}
+
+test.call({ name: "obj" }); // Logs 3 "true"
+Note that some source code, while looking like the global scope, is actually wrapped in a function when executed. For example, Node.js CommonJS modules are wrapped in a function and executed with the this value set to module.exports. Event handler attributes are executed with this set to the element they are attached to.
+
+Object literals don't create a this scope — only functions (methods) defined within the object do. Using this in an object literal inherits the value from the surrounding scope.
+
+js
+
+Copy
+const obj = {
+  a: this,
+};
+
+console.log(obj.a === window); // true
 
 
 ---------------------------------------------------------------------
