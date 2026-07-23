@@ -13,9 +13,21 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 
 
+
 ---------------------------------------------------------------------
 
 
+
+---------------------------------------------------------------------
+
+function getThis() {
+  return this;
+}
+
+// Only for demonstration — you should not mutate built-in prototypes
+Number.prototype.getThis = getThis;
+console.log(typeof (1).getThis()); // "object"
+console.log(getThis() === globalThis); // true
 
 ---------------------------------------------------------------------
 
