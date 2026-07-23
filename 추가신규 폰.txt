@@ -62,7 +62,6 @@ lbl: console.log(1); // Label
 
 
 
-public
 abstract
 byte
 char
