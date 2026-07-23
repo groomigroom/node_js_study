@@ -8183,13 +8183,8 @@ Note: Although bitwise operators can be used to represent several Boolean values
 It may be necessary to use such techniques in very constrained environments, like when trying to cope with the limitations of local storage, or in extreme cases (such as when each bit over the network counts). This technique should only be considered when it is the last measure that can be taken to optimize size.
 
 BigInt type
-The BigInt type is a numeric primitive in JavaScript that can represent integers with arbitrary magnitude. With BigInts, you can safely store and operate on large integers even beyond the safe integer limit (Number.MAX_SAFE_INTEGER) for Numbers.
+BigInt()
 
-A BigInt is created by appending n to the end of an integer or by calling the BigInt() function.
-
-This example demonstrates where incrementing the Number.MAX_SAFE_INTEGER returns the expected result:
-
-js
 
 Copy
 // BigInt
@@ -8277,108 +8272,4 @@ Symbol	"symbol"	Symbol
 쉼표 연산자
 ,
 쉼표 연산자를 사용하면 하나의 문장에서 여러 표현식을 평가할 수 있으며, 마지막 표현식의 결과를 반환합니다.
-
-
----------------------------------------------------------------------
-
-[a, b] = arr,{ a, b } = obj
-구조 분해 할당을 사용하면 배열이나 객체의 속성을 배열이나 객체 리터럴과 유사한 구문을 사용하여 변수에 할당할 수 있습니다.
-
-수익 운영자
-yield
-제너레이터 기능을 일시 중지했다가 다시 시작합니다.
-
-yield*
-다른 생성기 함수 또는 반복 가능한 객체에 위임합니다.
-
----------------------------------------------------------------------
-
-
-??
-널리시 병합 연산자.
-
-
----------------------------------------------------------------------
-
-===
-엄격한 등호 연산자.
-
-!==
-엄격한 부등식 연산자.
-
-비트 단위 시프트 연산자
-피연산자의 모든 비트를 이동시키는 연산입니다.
-
-<<
-비트 단위 좌측 시프트 연산자.
-
->>
-비트 단위 오른쪽 시프트 연산자.
-
->>>
-비트 단위 부호 없는 오른쪽 시프트 연산자.
-
-
-
----------------------------------------------------------------------
-
-instanceof
-연산자 instanceof는 객체가 다른 객체의 인스턴스인지 여부를 판단합니다.
-
-in
-연산자 in는 객체가 주어진 속성을 가지고 있는지 여부를 판단합니다.
-
-
----------------------------------------------------------------------
-
-**
-지수 연산자.
-
----------------------------------------------------------------------
-
-
-delete
-이 delete연산자는 객체에서 속성을 삭제합니다.
-
-void
-이 void연산자는 표현식을 평가하고 반환 값을 버립니다.
-
-typeof
-연산자 typeof는 주어진 객체의 유형을 결정합니다.
-
-~
-비트 단위 NOT 연산자.
-
-!
-논리 NOT 연산자.
-
-await
-비동기 함수를 일시 중지하고 다시 시작하며, 프로미스의 완료/거부를 기다립니다.
-
-
----------------------------------------------------------------------
-
-
-멤버 연산자는 객체의 속성이나 메서드에 대한 접근을 제공합니다( object.property및 object["property"]).
-
-?.
-선택적 체이닝 연산자는 참조가 null 에 가까운 경우 ( 또는 ) undefined오류를 발생시키는 대신 를 반환합니다 .nullundefined
-
-new
-이 new연산자는 생성자의 인스턴스를 생성합니다.
-
-new.target
-생성자에서 new.target는 에 의해 호출된 생성자를 가리킵니다 new.
-
-import.meta
-컨텍스트별 메타데이터를 JavaScript 모듈에 노출하는 객체입니다.
-
-super
-이 super키워드는 부모 객체의 생성자를 호출하거나 부모 객체의 속성에 접근할 수 있도록 합니다.
-
-import()
-이 import()구문을 사용하면 모듈을 비모듈 환경일 수도 있는 곳에 비동기적으로 동적으로 로드할 수 있습니다.
-
-
-
 
