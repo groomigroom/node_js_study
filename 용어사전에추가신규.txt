@@ -14,6 +14,26 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 
 
+
+
+---------------------------------------------------------------------
+
+
+
+function Person() {
+  // Some choose `that` instead of `self`.
+  // Choose one and be consistent.
+  const self = this;
+  self.age = 0;
+
+  setInterval(function growUp() {
+    // The callback refers to the `self` variable of which
+    // the value is the expected object.
+    self.age++;
+  }, 1000);
+}
+
+
 ---------------------------------------------------------------------
 
 function Person() {
