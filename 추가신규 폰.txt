@@ -61,7 +61,6 @@ lbl: console.log(1); // Label
 ----------------------------------------------------------------
 
 
-double
 final
 float
 goto
