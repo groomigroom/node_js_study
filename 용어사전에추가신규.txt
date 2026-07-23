@@ -74,22 +74,6 @@ You can mitigate this risk by always assigning TrustedScript objects instead of 
 
 The setTimeout() method of the Window interface sets a timer which executes a function or specified piece of code once the timer expires.
 
-In this article
-Syntax
-Description
-Examples
-Specifications
-Browser compatibility
-See also
-GitLab
-Secure software, faster
-One platform to collaborate and see everything from planning to production.
-Start today
-Ad
-Syntax
-js
-
-Copy
 setTimeout(code)
 setTimeout(code, delay)
 
