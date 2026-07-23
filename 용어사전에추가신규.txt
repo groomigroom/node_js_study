@@ -5,7 +5,18 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 수업 클래스까지 넣음
 
 
+---------------------------------------------------------------------
 
+
+function walkTree(node) {
+  if (node === null) {
+    return;
+  }
+  // do something with node
+  for (const child of node.childNodes) {
+    walkTree(child);
+  }
+}
 
 
 ---------------------------------------------------------------------
