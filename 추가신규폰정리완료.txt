@@ -1,33 +1,5 @@
 
 
-
-
-private -->
-
-자바스크립트에서 private은 클래스 내부의 변수나 메서드를 외부에서 접근하지 못하도록 숨기는 기능(캡슐화)을 의미합니다. 
-변수나 메서드 이름 앞에 # 기호를 붙여 공식적으로 private 속성을 지원합니다.
-1. 공식 문법: # (Private 클래스 필드)이름 앞에 #을 붙이면 클래스 내부에서만 사용할 수 있으며, 
-외부 인스턴스에서는 읽거나 수정할 수 없습니다.javascript
-class Counter {
-  #count = 0; // private 변수 선언
-
-  increment() {
-    this.#count++; // 내부에서는 접근 가능
-  }
-
-  getCount() {
-    return this.#count;
-  }
-}
-
-const myCounter = new Counter();
-myCounter.increment();
-console.log(myCounter.getCount()); // 1
-// console.log(myCounter.#count); // 에러 발생! 외부에서 직접 접근 불가
-
-
-----------------------------------------------------------------
-
 package -->
 
 패키지(Package)란, npm 또는 yarn 같은 패키지 매니저를 통해 설치하고 관리하는 코드의 묶음을 의미합니다.
