@@ -1,1 +1,5 @@
 window까지 63번줄까지삭제
+
+Baseline Widely available *
+Warning: When the code parameter is used, this method dynamically executes its value as JavaScript. APIs like this are known as injection sinks, and are potentially a vector for cross-site-scripting (XSS) attacks.
+위에 71번줆까지 삭제
