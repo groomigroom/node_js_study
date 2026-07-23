@@ -61,9 +61,6 @@ lbl: console.log(1); // Label
 ----------------------------------------------------------------
 
 
-long
-native
-short
 synchronized
 throws
 transient
