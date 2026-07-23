@@ -19,6 +19,23 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 ---------------------------------------------------------------------
 
+class Base {}
+class Good extends Base {}
+class AlsoGood extends Base {
+  constructor() {
+    return { a: 5 };
+  }
+}
+class Bad extends Base {
+  constructor() {}
+}
+
+new Good();
+new AlsoGood();
+new Bad(); // ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+
+---------------------------------------------------------------------
+
 class C {
   instanceField = this;
   static staticField = this;
