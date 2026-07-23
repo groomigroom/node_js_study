@@ -1,17 +1,5 @@
 
 
-클로저(Closure)를 활용한 방식함수 스코프의 특징을 활용해 외부에 노출되지 않는 private 변수를 생성하는 방식입니다.javascript
-function createCounter() {
-  let count = 0; // 외부에서 접근 불가능한 변수
-  return {
-    increment: function() { count++; },
-    getCount: function() { return count; }
-  };
-}
-
-const counter = createCounter();
-
-----------------------------------------------------------------
 
 
 private -->
