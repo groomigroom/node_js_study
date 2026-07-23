@@ -1126,6 +1126,34 @@ app.post('/api/users', (req, res) => {
 ---------------------------
 
 
+with -->
+
+자바스크립트의 with 문은 특정 객체를 스코프 체인에 추가하여, 객체의 속성이나 메서드를 호출할 때 객체 이름을 생략할 수 있게 해주는 문법입니다.
+하지만 혼란스러운 버그를 유발하고 성능 최적화를 방해하며 엄격 모드(strict mode)에서는 사용이 금지되어 있어 현재는 사용이 권장되지 않습니다.
+사용 예시 (권장하지 않음)
+javascript
+const circle = { radius: 10, color: 'red' };
+
+// with를 사용하면 객체 이름을 생략할 수 있습니다.
+with (circle) {
+  console.log(radius); // 10
+  console.log(color);  // red
+}
+.권장되는 대체 방법with 문을 사용하는 대신 객체 구조 분해 할당(Destructuring assignment) 을 사용하면 코드를 훨씬 안전하고 깔끔하게 작성할 수 있습니다.
+javascript
+const circle = { radius: 10, color: 'red' };
+
+// 구조 분해 할당을 사용하여 속성을 가져옵니다.
+const { radius, color } = circle;
+
+console.log(radius); // 10
+console.log(color);  // red
+
+
+
+----------------------------------------------------------------
+
+
 
 00000000000000000000000000000000000000000000000000000000000000000000000000000
 
