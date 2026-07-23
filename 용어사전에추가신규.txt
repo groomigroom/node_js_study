@@ -8524,46 +8524,9 @@ import, export
 
 
 
----------------------------------------------------------------------
-
-Regular expression literals
-Regular expression literals are enclosed by two forward slashes (/). The lexer consumes all characters up to the next unescaped forward slash or the end of the line, unless the forward slash appears within a character class ([]). Some characters (namely, those that are identifier parts) can appear after the closing slash, denoting flags.
-
-The lexical grammar is very lenient: not all regular expression literals that get identified as one token are valid regular expressions.
-
-See also RegExp for more information.
-
-js
-
 Copy
 /ab+c/g;
 /[/]/;
-
-
-
----------------------------------------------------------------------
-
-The last escape sequence, \ followed by a line terminator, is useful for splitting a string literal across multiple lines without changing its meaning.
-
-js
-
-Copy
-const longString =
-  "This is a very long string which needs \
-to wrap across multiple lines because \
-otherwise my code is unreadable.";
-Make sure there is no space or any other character after the backslash (except for a line break), otherwise it will not work. If the next line is indented, the extra spaces will also be present in the string's value.
-
-You can also use the + operator to append multiple strings together, like this:
-
-js
-
-Copy
-const longString =
-  "This is a very long string which needs " +
-  "to wrap across multiple lines because " +
-  "otherwise my code is unreadable.";
-
 
 
 ---------------------------------------------------------------------
@@ -8571,93 +8534,48 @@ const longString =
 
 Escape sequences -->
 
-\0	null character (U+0000 NULL)
-\'	single quote (U+0027 APOSTROPHE)
-\"	double quote (U+0022 QUOTATION MARK)
-\\	backslash (U+005C REVERSE SOLIDUS)
-\n	newline (U+000A LINE FEED; LF)
-\r	carriage return (U+000D CARRIAGE RETURN; CR)
-\v	vertical tab (U+000B LINE TABULATION)
-\t	tab (U+0009 CHARACTER TABULATION)
-\b	backspace (U+0008 BACKSPACE)
-\f	form feed (U+000C FORM FEED)
-\ followed by a line terminator	empty string
+제시해주신 내용은 자바스크립트(JavaScript)에서 문자열을 다룰 때 사용하는 이스케이프 시퀀스(Escape Sequences) 코드 목록입니다.
+자바스크립트에서 백슬래시(\) 뒤에 특정 문자나 숫자를 붙이면, 키보드로 직접 타이핑하기 힘들거나 컴퓨터가 오해하기 쉬운 특수한 기능(예: 줄바꿈, 띄어쓰기 등)을 문자열 안에 삽입할 수 있습니다.
+각 코드의 한국어 의미를 쉽게 정리해 드릴게요.
 
-BigInt literal
-Decimal
-async
-eval
-implements
-interface
-package
-private
-protected
-public
-abstract
-boolean
-byte
-char
-double
-final
-float
-goto
-int
-long
-native
-short
-synchronized
-throws
-transient
-volatile
+## 1. 한 줄씩 한국어 설명
 
-break
-case
-catch
-class
-const
-continue
-debugger
-default
-delete
-do
-else
-export
-extends
-false
-finally
-for
-function
-if
-import
-in
-instanceof
-new
-null
-return
-super
-switch
-this
-throw
-true
-try
-typeof
-var
-void
-while
-with
-
-let
-static
-
-await
-
-enum
+* \0 null character:
+널(Null) 문자. 아무것도 없는 빈 값을 의미하며, 문자열의 끝을 나타낼 때 주로 사용됩니다.
+* \' single quote:
+작은따옴표. 문자열 전체를 작은따옴표('...')로 감싸고 있을 때, 문자 내부에서 또 다른 작은따옴표를 표현하고 싶을 때 사용합니다.
+* \" double quote:
+큰따옴표. 문자열 전체를 큰따옴표("...")로 감싸고 있을 때, 문자 내부에서 큰따옴표를 문자로 표현하고 싶을 때 사용합니다.
+* \\ backslash:
+백슬래시(원화 기호 ₩). 컴퓨터가 백슬래시(\)를 이스케이프 명령어가 아닌 일반적인 글자 문자로 인식하도록 만듭니다.
+* \n newline:
+줄바꿈 (개행 문자). 키보드의 엔터(Enter)를 친 것처럼 글자를 다음 줄로 넘깁니다. (현대 운영체제에서 가장 널리 쓰이는 줄바꿈 방식입니다.)
+* \r carriage return:
+커서 맨 앞으로 이동. 현재 타이핑 중인 커서의 위치를 줄의 가장 첫 번째 칸으로 옮깁니다. (과거 타자기 방식에서 유래했으며, 윈도우 메모장 등에서는 줄바꿈을 할 때 \r\n을 세트로 묶어서 씁니다.)
+* \v vertical tab:
+세로 탭. 글자를 세로 방향으로 탭만큼 띄우는 기능이지만, 현대 웹 코딩에서는 거의 사용되지 않습니다.
+* \t tab:
+가로 탭 (Tab). 키보드의 탭 키를 누른 것처럼 글자 사이에 일정한 가로 공백(보통 2칸 혹은 4칸)을 만듭니다.
+* \b backspace:
+백스페이스. 키보드의 지우기 버튼을 누른 것처럼 바로 앞 글자 하나를 지우는 특수 효과입니다.
+* \f form feed:
+폼 피드 (다음 페이지로). 과거 프린터 출력 시 다음 페이지로 종이를 넘기라는 명령어였으나, 현재 자바스크립트 문자열에서는 거의 사용하지 않습니다.
+* \ followed by a line terminator:
+백슬래시 직후 줄바꿈. 코드 작성 시 문자열이 너무 길어져서 가독성을 위해 코드 창에서만 줄을 바꾸고 싶을 때 사용합니다. 실제 문자열 결과물에서는 공백이나 줄바꿈이 없는 빈 문자열(empty string)로 처리됩니다. [1] 
 
 
+## 💡 실전 활용 예시로 쉽게 이해하기
+만약 우리가 자바스크립트에서 이런 글자를 출력하고 싶다고 가정해 봅시다.
 
-----------------------------------------------------------------------------------------
+철수가 말했다. "안녕!"
+(다음 줄) "반가워."
 
-https://github.com/expressjs/express/blob/master/examples/auth/index.js
-의 82번줄 보고 있음....
+컴퓨터에게 큰따옴표와 줄바꿈을 오해 없이 전달하기 위해 아래와 같이 이스케이프 시퀀스를 섞어서 코드를 작성합니다.
 
+// \n으로 줄을 바꾸고, \"로 큰따옴표를 문자로 표현함let text = "철수가 말했다. \"안녕!\"\n\"반가워.\"";
+
+console.log(text);
+
+이외에 괄호 뒤에 적힌 (U+000A) 같은 코드들은 컴퓨터 세계의 전 세계 공통 문자 코드 표준인 유니코드(Unicode) 테이블 상에서의 고유 번호(주소)를 의미합니다.
+혹시 이스케이프 시퀀스를 쓰다가 문자열이 깨지는 문제가 발생하셨거나, 최신 자바스크립트 문법에서 이스케이프 시퀀스 없이 편하게 줄바꿈을 할 수 있는 백틱(` - 템플릿 리터럴) 문법이 궁금하시다면 언제든 말씀해 주세요!
 
