@@ -8,6 +8,19 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 
 
+
+
+
+---------------------------------------------------------------------
+
+
+function multiply(a, b) {
+  b = typeof b !== "undefined" ? b : 1;
+  return a * b;
+}
+
+console.log(multiply(5)); // 5
+
 ---------------------------------------------------------------------
 function A(x) {
   function B(y) {
