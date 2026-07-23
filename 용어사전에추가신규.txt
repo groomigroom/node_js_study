@@ -1,8 +1,7 @@
 
+https://nodejs.org/learn/getting-started/userland-migrations
 
-https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know-to-use-nodejs
-
-Timers까지 넣음
+이거까지 넣음
 
 
 
