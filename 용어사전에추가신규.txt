@@ -5,6 +5,17 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 수업 클래스까지 넣음
 
 
+---------------------------------------------------------------------
+
+
+function addSquares(a, b) {
+  function square(x) {
+    return x * x;
+  }
+  return square(a) + square(b);
+}
+
+---------------------------------------------------------------------
 
 function myFunc(theObject) {
   theObject.make = "korea";
