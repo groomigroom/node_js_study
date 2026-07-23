@@ -151,3 +151,18 @@ const longString =
   "to wrap across multiple lines because " +
   "otherwise my code is unreadable.";
 
+
+
+--------------------------------------------------
+
+
+expr <here> ++, expr <here> --
+continue <here> lbl
+break <here> lbl
+return <here> expr
+throw <here> expr
+yield <here> expr
+yield <here> * expr
+(param) <here> => {}
+async <here> function, async <here> prop(), async <here> function*, async <here> *prop(), async <here> (param) <here> => {}
+using <here> id, await <here> using <here> id
