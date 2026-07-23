@@ -106,57 +106,25 @@ console.log(color);  // red
 ----------------------------------------------------------------
 
 
-static
-
-
-static은 객체가 아닌 클래스 자체에 속하는 메서드나 속성을 정의할 때 사용합니다. 
-인스턴스를 생성하지 않고도 클래스 이름으로 직접 호출할 수 있어, 
-주로 유틸리티 함수에 활용됩니다.
-자바스크립트에서 static의 주요 특징과 사용 방법은 다음과 같습니다.
-1. 정적 메서드 (Static Method)static 키워드를 앞에 붙여 선언하며, 
-클래스의 인스턴스(객체)를 만들지 않고 클래스명.메서드명() 형태로 호출합니다.
-호출 불가: 인스턴스에서 정적 메서드를 호출하려고 하면 에러가 발생합니다.
-this 키워드: 정적 메서드 내부의 this는 인스턴스가 아닌 클래스 자체를 가리킵니다.javascript
-class MathUtil {
-  static sum(a, b) {
-    return a + b;
-  }
-}
-
-// 인스턴스 생성 없이 바로 호출
-console.log(MathUtil.sum(5, 10)); // 15
-코드를 사용할 때는 주의가 필요합니다.2. 정적 속성 (Static Property)클래스 레벨에서 공통으로 사용되는 데이터를 저장할 때 사용합니다.
-javascript
-class Config {
-  static API_URL = "https://example.com";
-}
-
-console.log(Config.API_URL); // "https://example.com"
 
 
 -------------------------------
 
-await
+
 
 enum
 
 
-The last escape sequence, \ followed by a line terminator, is useful for splitting a string literal across multiple lines without changing its meaning.
 
-js
-
-Copy
 const longString =
   "This is a very long string which needs \
 to wrap across multiple lines because \
 otherwise my code is unreadable.";
-Make sure there is no space or any other character after the backslash (except for a line break), otherwise it will not work. If the next line is indented, the extra spaces will also be present in the string's value.
 
-You can also use the + operator to append multiple strings together, like this:
 
 js
 
-Copy
+
 const longString =
   "This is a very long string which needs " +
   "to wrap across multiple lines because " +
