@@ -8569,10 +8569,8 @@ const longString =
 ---------------------------------------------------------------------
 
 
-Escape sequences
-Special characters can be encoded using escape sequences:
+Escape sequences -->
 
-Escape sequence	Unicode code point
 \0	null character (U+0000 NULL)
 \'	single quote (U+0027 APOSTROPHE)
 \"	double quote (U+0022 QUOTATION MARK)
@@ -8585,62 +8583,10 @@ Escape sequence	Unicode code point
 \f	form feed (U+000C FORM FEED)
 \ followed by a line terminator	empty string
 
-
-
----------------------------------------------------------------------
-
 BigInt literal
-The BigInt type is a numeric primitive in JavaScript that can represent integers with arbitrary precision. BigInt literals are created by appending n to the end of an integer.
-
-js
-
-Copy
-123456789123456789n     // 123456789123456789
-0o777777777777n         // 68719476735
-0x123456789ABCDEFn      // 81985529216486895
-0b11101001010101010101n // 955733
-
-
-
-
----------------------------------------------------------------------
-
-
-Numeric literals
-The Number and BigInt types use numeric literals.
-
 Decimal
-js
-
-Copy
-1234567890
-42
-Decimal literals can start with a zero (0) followed by another decimal digit, but if all digits after the leading 0 are smaller than 8, the number is interpreted as an octal number. This is considered a legacy syntax, and number literals prefixed with 0, whether interpreted as octal or decimal, cause a syntax error in strict mode — so, use the 0o prefix instead.
-
-js
-
-Copy
-0888 // 888 parsed as decimal
-0777 // parsed as octal, 511 in decimal
-
-
-
----------------------------------------------------------------------
-
-Identifiers with special meanings
-A few identifiers have a special meaning in some contexts without being reserved words of any kind. They include:
-
-arguments (not a keyword, but cannot be declared as identifier in strict mode)
-as (import * as ns from "mod")
 async
-eval (not a keyword, but cannot be declared as identifier in strict mode)
-from (import x from "mod")
-get
-of
-set
-
----------------------------------------------------------------------
-
+eval
 implements
 interface
 package
