@@ -12,10 +12,123 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 
 
+
+
+
+
+
 ---------------------------------------------------------------------
 
 
+---------------------------------------------------------------------
 
+
+this in DOM event handlers
+When a function is used as an event handler, its this parameter is bound to the DOM element on which the listener is placed (some browsers do not follow this convention for listeners added dynamically with methods other than addEventListener()).
+
+js
+
+Copy
+// When called as a listener, turns the related element blue
+function bluify(e) {
+  // Always true
+  console.log(this === e.currentTarget);
+  // true when currentTarget and target are the same object
+  console.log(this === e.target);
+  this.style.backgroundColor = "#A5D9F3";
+}
+
+// Get a list of every element in the document
+const elements = document.getElementsByTagName("*");
+
+// Add bluify as a click listener so when the
+// element is clicked on, it turns blue
+for (const element of elements) {
+  element.addEventListener("click", bluify);
+}
+this in inline event handlers
+When the code is called from an inline event handler attribute, its this is bound to the DOM element on which the listener is placed:
+
+html
+
+Copy
+<button onclick="alert(this.tagName.toLowerCase());">Show this</button>
+The above alert shows button. Note, however, that only the outer scope has its this bound this way:
+
+html
+
+Copy
+<button onclick="alert((function () { return this; })());">
+  Show inner this
+</button>
+In this case, the this parameter of the inner function is bound to globalThis (i.e., the default object in non–strict mode where this isn't passed in the call).
+
+Bound methods in classes
+Just like with regular functions, the value of this within methods depends on how they are called. Sometimes it is useful to override this behavior so that this within classes always refers to the class instance. To achieve this, bind the class methods in the constructor:
+
+js
+
+Copy
+class Car {
+  constructor() {
+    // Bind sayBye but not sayHi to show the difference
+    this.sayBye = this.sayBye.bind(this);
+  }
+
+  sayHi() {
+    console.log(`Hello from ${this.name}`);
+  }
+
+  sayBye() {
+    console.log(`Bye from ${this.name}`);
+  }
+
+  get name() {
+    return "Ferrari";
+  }
+}
+
+class Bird {
+  get name() {
+    return "Tweety";
+  }
+}
+
+const car = new Car();
+const bird = new Bird();
+
+// The value of 'this' in methods depends on their caller
+car.sayHi(); // Hello from Ferrari
+bird.sayHi = car.sayHi;
+bird.sayHi(); // Hello from Tweety
+
+// For bound methods, 'this' doesn't depend on the caller
+bird.sayBye = car.sayBye;
+bird.sayBye(); // Bye from Ferrari
+Note: Classes are always in strict mode. Calling methods with an undefined this will throw an error if the method tries to access properties on this.
+
+js
+
+Copy
+const carSayHi = car.sayHi;
+carSayHi(); // TypeError because the 'sayHi' method tries to access 'this.name', but 'this' is undefined in strict mode.
+Note, however, that auto-bound methods suffer from the same problem as using arrow functions for class properties: each instance of the class will have its own copy of the method, which increases memory usage. Only use it where absolutely necessary. You can also mimic the implementation of Intl.NumberFormat.prototype.format(): define the property as a getter that returns a bound function when accessed and saves it, so that the function is only created once and only created when necessary.
+
+this in with statements
+Although with statements are deprecated and not available in strict mode, they still serve as an exception to the normal this binding rules. If a function is called within a with statement and that function is a property of the scope object, the this value is bound to the scope object, as if the obj. prefix exists.
+
+js
+
+Copy
+const obj = {
+  foo() {
+    return this;
+  },
+};
+
+with (obj) {
+  console.log(foo() === obj); // true
+}
 
 
 
