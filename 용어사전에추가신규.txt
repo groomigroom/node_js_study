@@ -2,7 +2,7 @@
 
 https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know-to-use-nodejs
 
-수업 클래스까지 넣음
+Timers까지 넣음
 
 
 
@@ -24,6 +24,12 @@ https://nodejs.org/learn/getting-started/how-much-javascript-do-you-need-to-know
 
 
 
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
 
 
 
