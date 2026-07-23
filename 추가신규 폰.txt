@@ -42,5 +42,16 @@ users['gildong'] = { name: '홍길동' };
 * 이 users 객체를 활용한 실제 로그인 라우터 기능(인증 구현) 코드가 필요하신가요?
 * 메모리가 아닌 실제 데이터베이스(DB) 연동 방식으로 전환하는 방법이 궁금하신가요?
 
+---------------------------------------------------------------------
 
+function import() {} // Illegal: import is a reserved word.
+
+---------------------------------------------------------------------
+
+const obj = { key: "value" }; // Object keys
+// Class declaration
+class C {
+  #priv = "value"; // Private field
+}
+lbl: console.log(1); // Label
 
