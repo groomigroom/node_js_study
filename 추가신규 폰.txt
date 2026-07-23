@@ -3,6 +3,96 @@
 [a, b] = arr,{ a, b } = obj
 구조 분해 할당을 사용하면 배열이나 객체의 속성을 배열이나 객체 리터럴과 유사한 구문을 사용하여 변수에 할당할 수 있습니다.
 
+구조분해 할당(Destructuring Assignment)은 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 맞춤형으로 담을 수 있게 하는 자바스크립트 표현식입니다. [1, 2] 
+코드를 더 간결하게 만들고 가독성을 높여줍니다. [3, 4, 5] 
+## 1. 배열 구조분해 할당
+배열의 요소를 순서대로 변수에 할당합니다. [6] 
+
+* 기본 문법
+
+const fruits = ['사과', '바나나', '오렌지'];const [apple, banana, orange] = fruits;
+
+console.log(apple);  // '사과'
+console.log(banana); // '바나나'
+
+
+* 일부 값 무시하기
+
+// 공백을 남겨두면 해당 인덱스의 원소는 건너뜁니다.const [first, , third] = ['원', '투', '쓰리'];
+console.log(third); // '쓰리'
+
+
+* 기본값 설정
+
+// 할당받을 값이 없을 때를 대비해 기본값을 지정할 수 있습니다.const [a, b = 20] =;
+console.log(b); // 20
+
+------------------------------
+## 2. 객체 구조분해 할당
+객체의 프로퍼티 키를 기준으로 변수에 값을 할당합니다. 순서는 상관없습니다. [7, 8, 9] 
+
+* 기본 문법
+
+const user = { name: '철수', age: 25 };const { name, age } = user;
+
+console.log(name); // '철수'
+console.log(age);  // 25
+
+
+* 새로운 변수 이름으로 할당 [10] 
+
+// 원래 키 이름과 다른 이름의 변수에 값을 넣을 수 있습니다.const user = { name: '철수', age: 25 };const { name: userName, age: userAge } = user;
+
+console.log(userName); // '철수'
+
+
+* 기본값 설정
+
+const { target, mode = 'read' } = { target: 'h1' };
+console.log(mode); // 'read'
+
+------------------------------
+## 3. 주요 활용 사례
+
+* 함수 매개변수(Parameter) 처리
+
+// 객체를 인자로 받아 필요한 속성만 바로 추출합니다.function displayUser({ name, age }) {
+  console.log(`${name}님은 ${age}세입니다.`);
+}
+displayUser({ name: '영희', age: 30 });
+
+
+* 두 변수의 값 교환(Swap)
+
+let x = 1;let y = 2;
+[x, y] = [y, x]; // 임시 변수 없이 값을 바꿉니다.
+console.log(x); // 2
+
+------------------------------
+구조분해 할당을 실무 코드나 특정 프레임워크(React 등)에서 어떻게 활용하는지 더 알고 싶으신가요?
+원하신다면 다음 내용을 더 자세히 설명해 드릴 수 있습니다:
+
+* React의 useState 구조분해 원리
+* 중첩된 복잡한 객체 분해 방법
+* 나머지 매개변수(...rest)와 함께 쓰는 법 [11, 12] 
+
+
+[1] [https://developer.mozilla.org](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring)
+[2] [https://goldenrabbit.co.kr](https://goldenrabbit.co.kr/articles/zpzyvmC33cdU2prIcCaF)
+[3] [https://ko.javascript.info](https://ko.javascript.info/destructuring-assignment)
+[4] [https://joshua1988.github.io](https://joshua1988.github.io/es6-online-book/destructuring.html)
+[5] [https://hoya-kim.github.io](https://hoya-kim.github.io/2021/07/19/destructuring-assignment/)
+[6] [https://m.blog.naver.com](https://m.blog.naver.com/wideeyed/221818180319)
+[7] [https://ko.javascript.info](https://ko.javascript.info/destructuring-assignment)
+[8] [https://chanhuiseok.github.io](https://chanhuiseok.github.io/posts/js-10/)
+[9] [https://m.blog.naver.com](https://m.blog.naver.com/wideeyed/221818180319)
+[10] [https://developer.mozilla.org](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring)
+[11] [https://medium.com](https://medium.com/@possessor_view/react%EC%97%90%EC%84%9C%EC%9D%98-js-%EB%AC%B8%EB%B2%95-020345581070)
+[12] [https://ko.javascript.info](https://ko.javascript.info/destructuring-assignment)
+
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
 수익 운영자
 yield
 제너레이터 기능을 일시 중지했다가 다시 시작합니다.
