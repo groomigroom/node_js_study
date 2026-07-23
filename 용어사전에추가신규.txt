@@ -11407,59 +11407,11 @@ app.set('view engine', 'ejs');는 Node.js의 Express 프레임워크에서 EJS(E
 var app = module.exports = express(); -->
 
 
-이 코드는 Express 웹 서버 애플리케이션을 생성하고, 이 앱 객체를 다른 파일에서도 불러올 수 있도록 모듈로 내보내는(export) 역할을 합니다.주요 구성 요소의 의미는 다음과 같습니다:express(): Express 프레임워크를 초기화하고 웹 서버 애플리케이션 객체(app)를 생성합니다. 이 app 객체를 통해 라우팅, 미들웨어 설정, 서버 시작 등의 작업을 수행합니다.module.exports: 현재 작성 중인 파일을 하나의 모듈로 만들어 다른 파일에서 사용할 수 있게(import) 내보내는 Node.js의 내장 객체입니다.const app = module.exports = express();: 서버 객체(app)를 생성하는 동시에 내보내기 때문에, 이 파일을 불러오는(require) 다른 파일에서는 곧바로 이 서버 인스턴스를 받아 사용할 수 있습니다.
-
-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-
-
-
-
-require('pbkdf2-password')() -->
-
-
-Node.js에서 require('pbkdf2-password')()는 pbkdf2-password 모듈을 불러온 뒤,
-곧바로 함수로 실행하여 암호화/검증 옵션이 적용된 인스턴스를 생성하는 코드입니다.
-이 코드는 주로 사용자의 비밀번호를 안전하게 해싱(암호화)하고, 로그인 시 비밀번호가 일치하는지 검증할 때 사용합니다.
-코드 구조 뜯어보기
-
-* require('pbkdf2-password'): 외부 라이브러리인 pbkdf2-password 모듈을 가져옵니다.
-이 모듈은 내부적으로 crypto를 사용하여 편리하게 비밀번호를 처리해 줍니다.
-* (): 가져온 모듈이 '함수' 형태이기 때문에, 뒤에 괄호를 붙여 즉시 실행합니다.
-실행 시 기본 설정(옵션)이 적용된 객체가 반환됩니다.
-
-보통 아래처럼 변수에 할당하여 사용합니다:
-
-const hasher = require('pbkdf2-password')();
-
-주요 기능 및 특징
-
-* Salt 자동 생성: 레인보우 테이블 공격(미리 계산된 해시 테이블)을 막기 위해,
-매번 고유한 솔트(Salt) 값을 자동으로 생성하여 안전하게 결합합니다.
-* 반복 해싱(Key Stretching): 비밀번호와 솔트를 수천~수만 번 반복해서 해싱하여,
-해커가 무차별 대입 공격(Brute Force)을 하기 어렵도록 연산 비용을 높입니다.
-* 간결한 인터페이스: Node.js 내장 crypto.pbkdf2를 직접 쓰는 것보다 코드가 단순하여 다루기 쉽습니다.
-
-
-## 💻 실제 사용 예시
-사용자 비밀번호를 암호화하거나 검증할 때 다음과 같이 사용합니다:
-
-const hasher = require('pbkdf2-password')();
-// 1. 회원가입 시: 비밀번호 암호화
-hasher({ password: "myPassword123" }, function(err, pass, salt, hash) {
-    if (err) throw err;
-    
-    console.log(salt); // 자동 생성된 솔트 값 (DB에 저장 필수)
-    console.log(hash); // 최종 암호화된 결과물 (DB에 저장 필수)
-});
-// 2. 로그인 시: 비밀번호 검증 (기존 salt 재사용)
-hasher({ password: "userEnteredPassword", salt: savedSalt }, function(err, pass, salt, hash) {
-    if (hash === savedHash) {
-        console.log("로그인 성공!");
-    } else {
-        console.log("비밀번호 불일치!");
-    }
-});
-
-
-
+이 코드는 Express 웹 서버 애플리케이션을 생성하고,
+이 앱 객체를 다른 파일에서도 불러올 수 있도록 모듈로 내보내는(export) 역할을 합니다.
+주요 구성 요소의 의미는 다음과 같습니다:express(): Express 프레임워크를 초기화하고 웹 서버 애플리케이션 객체(app)를 생성합니다.
+이 app 객체를 통해 라우팅, 미들웨어 설정, 서버 시작 등의 작업을 수행합니다.
+module.exports: 현재 작성 중인 파일을 하나의 모듈로 만들어 다른 파일에서 사용할 수 있게(import) 내보내는 Node.js의 내장 객체입니다.
+const app = module.exports = express();: 서버 객체(app)를 생성하는 동시에 내보내기 때문에,
+이 파일을 불러오는(require) 다른 파일에서는 곧바로 이 서버 인스턴스를 받아 사용할 수 있습니다.
 
