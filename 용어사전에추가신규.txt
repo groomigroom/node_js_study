@@ -8140,13 +8140,3 @@ The value retrieved by a get access of the property. Can be any JavaScript value
 writable
 A boolean value indicating if the property can be changed with an assignment.
 
-
-enumerable
-(열거 가능)은 객체의 속성(property)이 루프나 메서드에 의해 탐색될 수 있는지를 결정하는 내부 속성값입니다. 
-즉, 어떤 값이 true이면 반복문에서 그 속성을 '셀 수(열거할 수)' 있음을 의미합니다.
-열거 가능(Enumerable)의 특징
-기본값: 일반적인 방식으로 직접 생성한 객체 속성과 배열의 인덱스는 기본적으로 enumerable: true입니다.
-제어 방법: Object.defineProperty() 메서드를 사용하면 속성을 만들 때 enumerable을 false로 지정해 숨길 수 있습니다.
-영향을 받는 기능:for...in 반복문Object.keys() 메서드JSON.stringify() 메서드
-영향을 받지 않는 기능: enumerable이 false여도 Object.keys()에는 안 나오지만, Object.getOwnPropertyNames()를 쓰면 강제로 확인할 수 있습니다.
-
