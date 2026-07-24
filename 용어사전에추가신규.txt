@@ -28,32 +28,6 @@ https://nodejs.org/learn/getting-started/userland-migrations
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-Array.prototype.push = function (item) {
-  // overriding the global [].push
-};
-
-------------------------------------------------------------------------------------------------------------------------------
-
-Array.prototype.push
-
-Array.prototype.push = function (item) {
-  // overriding the global [].push
-};
-// Uncaught:
-// TypeError <Object <Object <[Object: null prototype] {}>>>:
-// Cannot assign to read only property 'push' of object ''
-
-
-------------------------------------------------------------------------------------------------------------------------------
-globalThis
-
-> globalThis.foo = 3; foo; // you can still define new globals
-3
-> globalThis.Array = 4; Array; // However, you can also replace existing globals
-4
-
-
-------------------------------------------------------------------------------------------------------------------------------
 
 
 
