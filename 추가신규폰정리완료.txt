@@ -1,5 +1,5 @@
 
-
+구조 분해 할당 -->
 
 [a, b] = arr,{ a, b } = obj
 구조 분해 할당을 사용하면 배열이나 객체의 속성을 배열이나 객체 리터럴과 유사한 구문을 사용하여 변수에 할당할 수 있습니다.
@@ -11,10 +11,10 @@
 
 * 기본 문법
 
-const fruits = ['사과', '바나나', '오렌지'];const [apple, banana, orange] = fruits;
+const puppy = ['구름이', '멍멍이', '비숑'];const [groom, mungmung, bichon] = puppy;
 
-console.log(apple);  // '사과'
-console.log(banana); // '바나나'
+console.log(groom);  // '구름이'
+console.log(mungmung); // '멍멍이'
 
 
 * 일부 값 무시하기
@@ -28,7 +28,7 @@ console.log(third); // '쓰리'
 // 할당받을 값이 없을 때를 대비해 기본값을 지정할 수 있습니다.const [a, b = 20] =;
 console.log(b); // 20
 
-------------------------------
+
 ## 2. 객체 구조분해 할당
 객체의 프로퍼티 키를 기준으로 변수에 값을 할당합니다. 순서는 상관없습니다. [7, 8, 9] 
 
@@ -52,7 +52,7 @@ console.log(userName); // '철수'
 const { target, mode = 'read' } = { target: 'h1' };
 console.log(mode); // 'read'
 
-------------------------------
+
 ## 3. 주요 활용 사례
 
 * 함수 매개변수(Parameter) 처리
@@ -72,7 +72,7 @@ console.log(x); // 2
 
 
 
-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
 수익 운영자 xxxx
 yield
