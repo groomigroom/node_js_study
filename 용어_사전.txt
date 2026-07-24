@@ -6,7 +6,7 @@ Node.js 환경에서 패키지를 설치할 때 package.json의 dependencies 항
 
 ---------------------------
 
-??
+?? -->
 널리시 병합 연산자.
 
 자바스크립트에서 ??는 Nullish 병합 연산자(Nullish Coalescing Operator)를 의미합니다.
