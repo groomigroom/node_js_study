@@ -1,3 +1,80 @@
+
+구조 분해 할당 --> 이거 정리는 했는데, 예제 파악하기
+
+[a, b] = arr,{ a, b } = obj
+구조 분해 할당을 사용하면 배열이나 객체의 속성을 배열이나 객체 리터럴과 유사한 구문을 사용하여 변수에 할당할 수 있습니다.
+
+구조분해 할당(Destructuring Assignment)은 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 맞춤형으로 담을 수 있게 하는 자바스크립트 표현식입니다. [1, 2] 
+코드를 더 간결하게 만들고 가독성을 높여줍니다. [3, 4, 5] 
+## 1. 배열 구조분해 할당
+배열의 요소를 순서대로 변수에 할당합니다. [6] 
+
+* 기본 문법
+
+const puppy = ['구름이', '멍멍이', '비숑'];const [groom, mungmung, bichon] = puppy;
+
+console.log(groom);  // '구름이'
+console.log(mungmung); // '멍멍이'
+
+
+* 일부 값 무시하기
+
+// 공백을 남겨두면 해당 인덱스의 원소는 건너뜁니다.const [first, , third] = ['원', '투', '쓰리'];
+console.log(third); // '쓰리'
+
+
+* 기본값 설정
+
+// 할당받을 값이 없을 때를 대비해 기본값을 지정할 수 있습니다.const [a, b = 20] =;
+console.log(b); // 20
+
+
+## 2. 객체 구조분해 할당
+객체의 프로퍼티 키를 기준으로 변수에 값을 할당합니다. 순서는 상관없습니다. [7, 8, 9] 
+
+* 기본 문법
+
+const user = { name: '철수', age: 25 };const { name, age } = user;
+
+console.log(name); // '철수'
+console.log(age);  // 25
+
+
+* 새로운 변수 이름으로 할당 [10] 
+
+// 원래 키 이름과 다른 이름의 변수에 값을 넣을 수 있습니다.const user = { name: '철수', age: 25 };const { name: userName, age: userAge } = user;
+
+console.log(userName); // '철수'
+
+
+* 기본값 설정
+
+const { target, mode = 'read' } = { target: 'h1' };
+console.log(mode); // 'read'
+
+
+## 3. 주요 활용 사례
+
+* 함수 매개변수(Parameter) 처리
+
+// 객체를 인자로 받아 필요한 속성만 바로 추출합니다.function displayUser({ name, age }) {
+  console.log(`${name}님은 ${age}세입니다.`);
+}
+displayUser({ name: '영희', age: 30 });
+
+
+* 두 변수의 값 교환(Swap)
+
+let x = 1;let y = 2;
+[x, y] = [y, x]; // 임시 변수 없이 값을 바꿉니다.
+console.log(x); // 2
+
+
+
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
 private --> 이거 정리는 했는데, 예제 파악하기
 
 자바스크립트에서 private은 클래스 내부의 변수나 메서드를 외부에서 접근하지 못하도록 숨기는 기능(캡슐화)을 의미합니다. 
