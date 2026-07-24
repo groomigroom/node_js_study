@@ -396,9 +396,7 @@ users['gildong'] = { name: '홍길동' };
 
 ---------------------------------------------------------------------
 
-function import() {} // Illegal: import is a reserved word.
 
----------------------------------------------------------------------
 
 const obj = { key: "value" }; // Object keys
 // Class declaration
