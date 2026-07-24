@@ -1,3 +1,14 @@
+const net = require('node:net');
+const server = net.createServer(function (socket) {
+  // socket.on('error', console.error) // this prevents the server to crash
+  socket.write('Echo server\r\n');
+  socket.pipe(socket);
+});
+server.listen(5000, '0.0.0.0');
+
+--------------------------------------------------
+
+
 await 이거 정리는 했는데, 예제 파악하기 코드 돌려보기
 비동기 함수를 일시 중지하고 다시 시작하며, 프로미스의 완료/거부를 기다립니다.
 
