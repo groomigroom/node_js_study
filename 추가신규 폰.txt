@@ -1,1 +1,4 @@
 
+function import() {} // Illegal: import is a reserved word.
+
+확인할거에서 이거 삭제하기
