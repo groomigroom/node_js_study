@@ -1,25 +1,5 @@
 
 
-typeof
-연산자 typeof는 주어진 객체의 유형을 결정합니다.
-
-typeof는 자바스크립트에서 변수나 값의 데이터 타입을 확인하여 문자열로 반환해 주는 연산자입니다.
-자주 반환되는 문자열 결과는 다음과 같습니다:
-"string": 문자열
-"number": 숫자
-"boolean": 참(true)/거짓(false)
-"undefined": 값이 할당되지 않은 상태
-"object": 객체(주의: null도 이 타입으로 반환됨) 및 배열(Array)
-"function": 함수
-
-예시 : 
-
-console.log(typeof 42);
-// Expected output: "number"
-
-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-
-
 await
 비동기 함수를 일시 중지하고 다시 시작하며, 프로미스의 완료/거부를 기다립니다.
 
