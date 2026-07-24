@@ -5902,9 +5902,7 @@ Static methods
 Static properties
 Instance methods
 Instance properties
-WorkOS Homepage Bottom Banner
-Ad
-Your blueprint for a better internet.
+
 
 
 ---------------------------------------------------------------------
@@ -8144,19 +8142,4 @@ A boolean value indicating if the property can be changed with an assignment.
 
 enumerable
 A boolean value indicating if the property can be enumerated by a for...in loop. See also Enumerability and ownership of properties for how enumerability interacts with other functions and syntaxes.
-
-configurable
-
-
-
-configurable
-객체 속성(프로퍼티)의 변경 및 삭제 가능 여부를 뜻하는 내부 속성값(프로퍼티 어트리뷰트)입니다.
-
-주요 역할
-true 설정 시: 속성을 객체에서 삭제할 수 있고, 
-writable을 제외한 다른 속성 설정(enumerable, configurable)을 바꿀 수 있습니다.
-false 설정 시: 속성을 삭제할 수 없고, 속성 설정을 바꿀 수 없습니다. (단, writable이 true면 값은 변경할 수 있습니다)
-기본값 차이객체에 직접 속성을 넣을 때(obj.a = 1): configurable은 true입니다.Object.defineProperty()로 속성을 만들 때: 따로 적지 않으면 기본값인 false가 됩니다.
-
-
 
