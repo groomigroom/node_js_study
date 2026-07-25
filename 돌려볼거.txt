@@ -1,0 +1,50 @@
+요청하신 첫 줄 패키지 명을 반영하고, Spring Boot의 @RestController 구조와 동일하게 동작하는 Node.js (Express 프레임워크) 코드를 작성했습니다.
+Node.js 환경에서는 자바와 달리 파일 상단에 패키지 선언을 하지 않지만, 요청하신 규칙을 주석으로 적용했습니다.
+## 1. Node.js (Express) 소스 코드
+
+package com.example.demo; // ⭐️ 첫 줄을 이렇게 꼭 변경해 주세요!
+const express = require('express');const app = express();const port = 8080; // Spring Boot의 기본 포트인 8080으로 설정
+// @RequestMapping("/")
+app.get('/', (req, res) => {
+    res.send('Hello');
+});
+// @RequestMapping("/bye")
+app.get('/bye', (req, res) => {
+    res.send('Bye');
+});
+// @RequestMapping("/groomiHouse")
+app.get('/groomiHouse', (req, res) => {
+    res.send('구름이네 집입니다.');
+});
+// @RequestMapping("/groomiFavorite")
+app.get('/groomiFavorite', (req, res) => {
+    res.send('구름이의 최에는 간식입니다.');
+});
+// @RequestMapping("/groomiSound")
+app.get('/groomiSound', (req, res) => {
+    res.send('구름이의 소리는 멍멍');
+});
+// @RequestMapping("/groomiSimsim")
+app.get('/groomiSimsim', (req, res) => {
+    res.send('구름이가 심심할 때는 잠자요');
+});
+// 서버 실행
+app.listen(port, () => {
+    console.log(`서버가 http://localhost:${port} 에서 실행 중입니다.`);
+});
+
+## 2. 실행을 위한 사전 준비 단계
+Node.js에서 위 코드를 실행하려면 프로젝트 설정과 라이브러리 설치가 필요합니다. 터미널에서 다음 명령어를 순서대로 입력하세요.
+
+* 프로젝트 초기화: npm init -y
+* Express 라이브러리 설치: npm install express
+* 서버 실행: node 파일이름.js (예: node app.js)
+
+------------------------------
+이 코드를 실행하는 과정에서 어려움이 있거나 추가 기능이 필요하시다면 다음 내용을 알려주세요:
+
+* Node.js 프로젝트의 폴더 구조나 환경 설정 방법을 알고 싶으신가요?
+* Spring의 @PathVariable이나 @RequestParam처럼 파라미터를 받는 방법이 궁금하신가요?
+* 자바처럼 클래스 기반(NestJS 프레임워크)으로 더 비슷하게 구현하는 방법이 필요하신가요?
+
+
