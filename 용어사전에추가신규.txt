@@ -7805,21 +7805,6 @@ BigInt type
 BigInt()
 
 
-Copy
-// BigInt
-const x = BigInt(Number.MAX_SAFE_INTEGER); // 9007199254740991n
-x + 1n === x + 2n; // false because 9007199254740992n and 9007199254740993n are unequal
-
-// Number
-Number.MAX_SAFE_INTEGER + 1 === Number.MAX_SAFE_INTEGER + 2; // true because both are 9007199254740992
-You can use most operators to work with BigInts, including +, *, -, **, and % — the only forbidden one is >>>. A BigInt is not strictly equal to a Number with the same mathematical value, but it is loosely so.
-
-BigInt values are neither always more precise nor always less precise than numbers, since BigInts cannot represent fractional numbers, but can represent big integers more accurately. Neither type entails the other, and they are not mutually substitutable. A TypeError is thrown if BigInt values are mixed with regular numbers in arithmetic expressions, or if they are implicitly converted to each other.
-
-String type
-The String type represents textual data and is encoded as a sequence of 16-bit unsigned integer values representing UTF-16 code units. Each element in the string occupies a position in the string. The first element is at index 0, the next at index 1, and so on. The length of a string is the number of UTF-16 code units in it, which may not correspond to the actual number of Unicode characters; see the String reference page for more details.
-
-JavaScript strings are immutable. This means that once a string is created, it is not possible to modify it. String methods create new strings based on the content of the current string — for example:
 
 A substring of the original using substring().
 A concatenation of two strings using the concatenation operator (+) or concat().
@@ -7833,8 +7818,6 @@ With conventions, it is possible to represent any data structure in a string. Th
 
 Use strings for textual data. When representing complex data, parse strings, and use the appropriate abstraction.
 
-Symbol type
-A Symbol is a unique and immutable primitive value and may be used as the key of an Object property (see below). In some programming languages, Symbols are called "atoms". The purpose of symbols is to create unique property keys that are guaranteed not to clash with keys from other code.
 
 Objects
 In computer science, an object is a value in memory which is possibly referenced by an identifier. In JavaScript, objects are the only mutable values. Functions are, in fact, also objects with the additional capability of being callable.
@@ -7854,5 +7837,14 @@ writable
 A boolean value indicating if the property can be changed with an assignment.
 
 
-writable은 객체의 프로퍼티(속성) 값이 바뀔 수 있는지(수정 가능한지)를 나타내는 속성 어트리뷰트입니다.핵심 개념true: 프로퍼티에 새로운 값을 할당하여 기존 값을 바꿀 수 있습니다.false: 읽기 전용(read-only) 상태가 되며, 값을 바꾸려고 해도 값이 변하지 않고 엄격 모드(strict mode)에서는 에러가 발생합니다.주요 특징 및 사용법기본값: 일반적인 방식으로 객체에 속성을 추가하면 writable은 기본적으로 true입니다.
+writable
+
+객체의 프로퍼티(속성) 값이 바뀔 수 있는지(수정 가능한지)를 나타내는 속성 어트리뷰트입니다.
+핵심 개념
+true: 프로퍼티에 새로운 값을 할당하여 기존 값을 바꿀 수 있습니다.
+false: 읽기 전용(read-only) 상태가 되며, 값을 바꾸려고 해도 값이 변하지 않고 엄격 모드(strict mode)에서는 에러가 발생합니다.
+주요 특징 및 사용법
+기본값: 일반적인 방식으로 객체에 속성을 추가하면 writable은 기본적으로 true입니다.
+
+------------------------------------------------------------------
 
