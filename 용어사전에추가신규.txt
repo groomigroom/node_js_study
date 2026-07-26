@@ -7760,7 +7760,7 @@ A concatenation of two strings using the concatenation operator (+) or concat().
 Beware of "stringly-typing" your code!
 It can be tempting to use strings to represent complex data. Doing this comes with short-term benefits:
 
-fetch()
+
 Response.text()
 
 
