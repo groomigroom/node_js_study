@@ -1826,15 +1826,6 @@ Copy
 createAudioFileAsync(audioSettings).then(successCallback, failureCallback);
 This convention has several advantages. We will explore each one.
 
-In this article
-Chaining
-Error handling
-Composition
-Cancellation
-Creating a Promise around an old callback API
-Timing
-See also
-GitLab
 Take the assessment
 Take our 5-minute assessment to get your personalized roadmap for AI-powered development.
 Start here
