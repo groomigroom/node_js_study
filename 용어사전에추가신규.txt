@@ -7752,8 +7752,6 @@ Note: Although bitwise operators can be used to represent several Boolean values
 
 It may be necessary to use such techniques in very constrained environments, like when trying to cope with the limitations of local storage, or in extreme cases (such as when each bit over the network counts). This technique should only be considered when it is the last measure that can be taken to optimize size.
 
-BigInt type
-BigInt()
 
 
 
@@ -7777,12 +7775,6 @@ Properties
 In JavaScript, objects can be seen as a collection of properties. With the object literal syntax, a limited set of properties are initialized; then properties can be added and removed. Object properties are equivalent to key-value pairs. Property keys are either strings or symbols. When other types (such as numbers) are used to index objects, the values are implicitly converted to strings. Property values can be values of any type, including other objects, which enables building complex data structures.
 
 There are two types of object properties: The data property and the accessor property. Each property has corresponding attributes. Each attribute is accessed internally by the JavaScript engine, but you can set them through Object.defineProperty(), or read them through Object.getOwnPropertyDescriptor(). You can read more about the various nuances on the Object.defineProperty() page.
-
-Data property
-Data properties associate a key with a value. It can be described by the following attributes:
-
-value
-The value retrieved by a get access of the property. Can be any JavaScript value.
 
 ------------------------------------------------------------------
 
