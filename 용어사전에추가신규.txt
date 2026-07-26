@@ -4555,29 +4555,7 @@ WorkOS Homepage Bottom Banner
 Ad
 Your blueprint for a better internet.
 
-MDN
-About
-Blog
-Mozilla careers
-Advertise with us
-MDN Plus
-Product help
-Contribute
-MDN Community
-Community resources
-Writing guidelines
-MDN Discord
-MDN on GitHub
-Developers
-Web technologies
-Learn web development
-Guides
-Tutorials
-Glossary
-Hacks blog
-Website Privacy Notice
-Telemetry Settings
-Legal
+
 Community Participation Guidelines
 Portions of this content are ©1998–2026 by individual mozilla.org contributors. Content available under a Creative Commons license.
 
@@ -4590,34 +4568,7 @@ Skip to search
 Learn frontend, backend, and AI from our course partner Scrimba
 
 
-HTML
 
-CSS
-
-JavaScript
-
-Web APIs
-
-All
-
-Learn
-
-Tools
-
-About
-Blog
-
-Log in
-Web
-JavaScript
-Reference
-Standard built-in objects
-Array
-
-Theme
-
-English (US)
-Array
 Baseline Widely available *
 The Array object, as with arrays in other programming languages, enables storing a collection of multiple items under a single variable name, and has members for performing common array operations.
 
@@ -7832,19 +7783,6 @@ Data properties associate a key with a value. It can be described by the followi
 
 value
 The value retrieved by a get access of the property. Can be any JavaScript value.
-
-writable
-A boolean value indicating if the property can be changed with an assignment.
-
-
-writable
-
-객체의 프로퍼티(속성) 값이 바뀔 수 있는지(수정 가능한지)를 나타내는 속성 어트리뷰트입니다.
-핵심 개념
-true: 프로퍼티에 새로운 값을 할당하여 기존 값을 바꿀 수 있습니다.
-false: 읽기 전용(read-only) 상태가 되며, 값을 바꾸려고 해도 값이 변하지 않고 엄격 모드(strict mode)에서는 에러가 발생합니다.
-주요 특징 및 사용법
-기본값: 일반적인 방식으로 객체에 속성을 추가하면 writable은 기본적으로 true입니다.
 
 ------------------------------------------------------------------
 
