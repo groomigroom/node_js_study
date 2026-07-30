@@ -7741,9 +7741,7 @@ The Number type has only one value with multiple representations: 0 is represent
 
 js
 
-Copy
-console.log(42 / +0); // Infinity
-console.log(42 / -0); // -Infinity
+
 NaN ("Not a Number") is a special kind of number value that's typically encountered when the result of an arithmetic operation cannot be expressed as a number. It is also the only value in JavaScript that is not equal to itself.
 
 Although a number is conceptually a "mathematical value" and is always implicitly floating-point-encoded, JavaScript provides bitwise operators. When applying bitwise operators, the number is first converted to a 32-bit integer.
