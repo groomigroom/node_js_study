@@ -1820,6 +1820,22 @@ console.log(Config.API_URL); // "https://example.com"
 
 ----------------------------------------------------------------
 
+
+substring()
+문자열의 특정 시작 위치부터 끝 위치 전까지를 잘라내어 새로운 문자열을 반환하는 String.prototype.substring() 메서드입니다.
+Node.js는 자바스크립트를 기반으로 하므로, 
+자바스크립트의 문자열 자르기 기능을 그대로 사용합니다.
+주요 특징
+기본 동작: str.substring(startIndex, endIndex) 형태로 사용하며 startIndex부터 endIndex - 1까지의 문자열을 추출합니다.
+두 번째 인자 생략: endIndex를 쓰지 않으면 startIndex부터 문자열의 끝까지 모두 가져옵니다.
+인자 교환: startIndex가 endIndex보다 크면, 두 값이 자동으로 교환되어 처리됩니다 (예: substring(5, 2)는 substring(2, 5)로 동작).
+음수 처리: 음수 인덱스를 넣으면 0으로 취급하여 문자열의 처음부터 자릅니다.사용 예시javascript
+const str = "Hello Node.js";
+console.log(str.substring(0, 5)); // "Hello" (0번째부터 4번째 인덱스까지)
+console.log(str.substring(6));    // "Node.js" (6번째부터 끝까지)
+
+----------------------------------------------------------------
+
 success
 
 req.session.success에서 session이 express-session일 때, node.js에서 의미하는 거? -->
