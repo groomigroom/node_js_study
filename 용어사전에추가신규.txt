@@ -2664,11 +2664,7 @@ Note that these examples omit the use of trusted types for brevity. See Using Tr
 Setting and clearing timeouts
 The following example sets up two simple buttons in a web page and hooks them to the setTimeout() and clearTimeout() routines. Pressing the first button will set a timeout which shows a message after two seconds and stores the timeout id for use by clearTimeout(). You may optionally cancel this timeout by pressing on the second button.
 
-HTML
-html
 
-Copy
-Play
 <button id="show">Show a message after two seconds</button>
 <button id="cancel">Cancel message before it happens</button>
 
@@ -2706,86 +2702,11 @@ HTML
 # dom-settimeout-dev
 Browser compatibility
 Report problems with this compatibility data • View data on GitHub
-desktop
-mobile
-server
-Chrome
-Edge
-Firefox
-Opera
-Safari
-Chrome Android
-Firefox for Android
-Opera Android
-Safari on iOS
-Samsung Internet
-WebView Android
-WebView on iOS
-Bun
-Deno
-Node.js
-setTimeout
 
-1
 
-12
-
-1
-
-4
-
-1
-
-18
-
-4
-
-10.1
-
-1
-
-1
-
-4.4
-
-1
-
-1
-
-1
-
-0.10
 code parameter requires TrustedScript instance when trusted types are enforced.
 
-83
 
-83
-
-148
-
-69
-
-26
-
-83
-
-148
-
-59
-
-26
-
-13
-
-83
-
-26
-
-No
-
-No
-
-No
 Supports parameters for callback
 
 1
