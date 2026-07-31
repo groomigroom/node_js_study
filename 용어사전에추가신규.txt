@@ -5781,24 +5781,7 @@ Arrow functions don't have their own bindings to this, arguments, or super, and 
 Arrow functions cannot be used as constructors. Calling them with new throws a TypeError. They also don't have access to the new.target keyword.
 Arrow functions cannot use yield within their body and cannot be created as generator functions.
 In this article
-Try it
-Syntax
-Description
-Examples
-Specifications
-Browser compatibility
-See also
-Auth0
-The complete auth solution for AI agents
-Auth0 lets you focus on building by eliminating the security overhead for your agents, APIs, & users
-Start Building
-Ad
-Try it
-JavaScript Demo: Arrow function expressions
-1
-2
-3
-4
+
 5
 const materials = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
 
