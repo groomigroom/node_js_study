@@ -4,29 +4,6 @@ https://nodejs.org/learn/getting-started/userland-migrations
 이거까지 넣음
 
 
-bind()
-bind() 메서드는 this 바인딩 고정, 새로운 함수 생성, 인자 미리 지정 기능을 수행합니다. 
-자바스크립트의 Function.prototype.bind()와 완전히 동일합니다.
-주요 의미와 특징
-this 값 고정: 함수가 어떻게 호출되든 상관없이 내부의 this가 특정 객체를 가리키도록 강제로 묶어줍니다.
-새로운 함수 반환: 원본 함수를 바로 실행하지 않고, this와 인자가 바뀐 새로운 복제 함수를 만들어 리턴합니다.
-인자 미리 채우기(부분 적용): bind()를 사용할 때 this 뒤에 인자들을 전달하면, 
-나중에 함수를 호출할 때 그 인자들이 먼저 입력되도록 설정할 수 있습니다.
-사용 예시 
-(콜백 함수)객체의 메서드를 다른 함수의 콜백(setTimeout 등)으로 넘길 때 this가 유실되는 문제를 해결합니다.
-
-const user = {
-  name: '철수',
-  sayHi() {
-    console.log(`안녕, 나는 ${this.name}야.`);
-  }
-};
-
-// 그냥 전달하면 this가 유실되어 undefined가 됨
-setTimeout(user.sayHi, 1000); 
-
-// bind()를 사용해 user 객체로 this를 고정
-setTimeout(user.sayHi.bind(user), 1000);
 
 ------------------------------------------------------------------------------------------------------------------------------
 
