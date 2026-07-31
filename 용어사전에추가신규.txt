@@ -2956,9 +2956,8 @@ HTMLTitleElement
 HTMLTrackElement
 HTMLUListElement
 HTMLUnknownElement
-HTMLVideoElement
 HashChangeEvent
-History
+
 ImageData
 
 MessageChannel
@@ -2983,48 +2982,10 @@ WorkOS Homepage Bottom Banner
 Ad
 Your blueprint for a better internet.
 
-MDN
-About
-Blog
-Mozilla careers
-Advertise with us
-MDN Plus
-Product help
-Contribute
-MDN Community
-Community resources
-Writing guidelines
-MDN Discord
-MDN on GitHub
-Developers
-Web technologies
-Learn web development
-Guides
-Tutorials
-Glossary
-Hacks blog
-Website Privacy Notice
-Telemetry Settings
-Legal
-Community Participation Guidelines
-Portions of this content are ©1998–2026 by individual mozilla.org contributors. Content available under a Creative Commons license.
-
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-Skip to main content
-Skip to search
-Auth0 by Okta
-AI agents are the new front-end. Are you ready? Remove bottlenecks and ship faster with Auth0.
-Start Building
 
-Extension modules
-Asynchronous JavaScript
-Introduction
-
-Theme
-
-English (US)
 Introducing asynchronous JavaScript
 Overview: Asynchronous JavaScript
 Next
