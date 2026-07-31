@@ -2928,7 +2928,7 @@ HTMLGeolocationElement
 HTMLHRElement
 HTMLHeadElement
 HTMLHeadingElement
-HTMLHtmlElement
+
 HTMLIFrameElement
 HTMLImageElement
 HTMLInputElement
