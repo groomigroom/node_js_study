@@ -372,6 +372,34 @@ a start
 
 ---------------------------
 
+
+apply()
+함수를 호출하면서 this로 사용할 객체를 지정하고, 매개변수를 배열(또는 유사 배열) 형태로 전달하는 메서드입니다.핵심 특징this 바인딩: 함수 내부의 this가 가리키는 객체를 첫 번째 인자로 바꿉니다.배열 형태의 인자: 전달할 매개변수들을 쉼표로 나열하지 않고 하나의 배열로 묶어서 전달합니다.MDN Web Docs 자료에서 공식적인 세부 작동 방식을 확인할 수 있습니다.주요 용도배열과 함께 사용 (Math.max 등): 배열 안의 값 중 최대값을 찾을 때 Math.max.apply(null, arr)처럼 사용합니다.메소드 빌려 쓰기: 다른 객체의 기능을 내 객체처럼 잠시 빌려와서 실행할 때 씁니다.call()과의 차이: call()은 인자를 하나씩 따로 받지만, apply()는 배열로 받는다는 점만 다릅니다.
+
+const numbers = [5, 6, 2, 3, 7];
+// Math.max.apply(null, [5, 6, 2, 3, 7])
+const max = Math.max.apply(null, numbers);
+console.log(max); // 7
+
+
+아래꺼는 다른 예제
+
+
+다른 객체의 메서드 빌려 쓰기 (this 바인딩)apply의 첫 번째 인자에 원하는 객체를 넣어서 this를 바꿔 실행할 수 있습니다.javascript
+const obj1 = {
+  name: '철수',
+  greet: function(msg, punctuation) {
+    console.log(this.name + '야, ' + msg + punctuation);
+  }
+};
+
+const obj2 = { name: '영희' };
+
+// obj1의 greet 함수를 빌려오되, this는 obj2로 설정하고 인자는 배열로 전달
+obj1.greet.apply(obj2, ['안녕', '!']); // 영희야, 안녕!
+
+------------------------------------------------------------------------------------------------------------------------------
+
 async -->
 
 자바스크립트에서 async는 'Asynchronous(비동기)'의 약자로, 
