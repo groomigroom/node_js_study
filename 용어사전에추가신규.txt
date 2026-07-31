@@ -2708,30 +2708,15 @@ Supports parameters for callback
 Legend
 Tip: you can click/tap on a cell for more information.
 
-Full support
-Full support
-Partial support
-Partial support
-No support
-No support
-See also
+
 Polyfill of setTimeout which allows passing arguments to the callback in core-js
 Window.clearTimeout()
 WorkerGlobalScope.setTimeout()
 Window.setInterval()
 Window.requestAnimationFrame()
 Window.queueMicrotask()
-Help improve MDN
 
-Was this page helpful to you?
 
-Yes
-
-No
-Learn how to contribute
-This page was last modified on Jun 17, 2026 by MDN contributors.
-
-View this page on GitHub • Report a problem with this content
 Filter sidebar
 Filter
 HTML DOM API
