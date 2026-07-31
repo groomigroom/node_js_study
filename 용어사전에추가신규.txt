@@ -3032,7 +3032,7 @@ HTMLVideoElement
 HashChangeEvent
 History
 ImageData
-Location
+
 MessageChannel
 MessageEvent
 MessagePort
