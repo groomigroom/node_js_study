@@ -1,3 +1,21 @@
+bind() 사전에 있음 예제
+
+const user = {
+  name: '철수',
+  sayHi() {
+    console.log(`안녕, 나는 ${this.name}야.`);
+  }
+};
+
+// 그냥 전달하면 this가 유실되어 undefined가 됨
+setTimeout(user.sayHi, 1000); 
+
+// bind()를 사용해 user 객체로 this를 고정
+setTimeout(user.sayHi.bind(user), 1000);
+
+
+---------------------------------------------
+
 Array.prototype.push = function (item) {
   // overriding the global [].push
 };
