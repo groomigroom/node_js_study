@@ -3799,28 +3799,15 @@ In strict mode code, eval doesn't create a new variable in the scope from which 
 Block-scoped function declarations
 In sloppy mode, a function declaration inside a block may be visible outside the block and even callable. In strict mode, a function declaration inside a block is only visible inside the block.
 
-Specifications
-Specification
-ECMAScript® 2027 Language Specification
-See also
-JavaScript modules guide
-Lexical grammar
-Help improve MDN
 
-Was this page helpful to you?
 
-Yes
-
-No
 Learn how to contribute
 This page was last modified on Mar 23, 2026 by MDN contributors.
 
 View this page on GitHub • Report a problem with this content
 Filter sidebar
 Filter
-JavaScript
-Tutorials and guides
-JavaScript Guide
+
 Intermediate
 Advanced
 References
@@ -3872,35 +3859,7 @@ Portions of this content are ©1998–2026 by individual mozilla.org contributor
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-template
-Skip to main content
-Skip to search
-GitLab
-See what your team can do with the intelligent orchestration platform for DevSecOps.
-Start your free trial
-Ad
 
-HTML
-
-CSS
-
-JavaScript
-
-Web APIs
-
-All
-
-Learn
-
-Tools
-
-About
-Blog
-
-Log in
-Web
-JavaScript
-Reference
 Template literals (Template strings)
 
 Theme
