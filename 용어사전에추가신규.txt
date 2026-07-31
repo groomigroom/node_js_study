@@ -10,7 +10,14 @@ https://nodejs.org/learn/getting-started/userland-migrations
 
  call()
 
-call() 메서드는 함수를 호출하면서 this로 사용할 객체를 명시적으로 지정하는 기능입니다. 핵심 특징은 this 바인딩 변경, 인수 전달 방식, 그리고 메서드 빌려오기입니다.주요 특징this 값 설정: 함수 내부의 this가 가리키는 객체를 첫 번째 인자로 전달한 객체로 바꿉니다.개별 인수 전달: 첫 번째 인자(this로 쓸 객체) 뒤에 쉼표로 구분하여 함수의 매개변수들을 각각(individual arguments) 전달합니다.메소드 재사용 (Borrowing): 다른 객체에 있는 메서드를 빌려와서 현재 객체가 마치 자신의 것처럼 사용할 수 있도록 합니다.사용 예시javascriptfunction greet(greeting) {
+call() 메서드는 함수를 호출하면서 this로 사용할 객체를 명시적으로 지정하는 기능입니다. 
+핵심 특징은 this 바인딩 변경, 인수 전달 방식, 그리고 메서드 빌려오기입니다.
+주요 특징
+this 값 설정: 함수 내부의 this가 가리키는 객체를 첫 번째 인자로 전달한 객체로 바꿉니다.
+개별 인수 전달: 첫 번째 인자(this로 쓸 객체) 뒤에 쉼표로 구분하여 함수의 매개변수들을 각각(individual arguments) 전달합니다.
+메소드 재사용 (Borrowing): 다른 객체에 있는 메서드를 빌려와서 현재 객체가 마치 자신의 것처럼 사용할 수 있도록 합니다.
+사용 예시javascript
+function greet(greeting) {
   console.log(greeting + ", " + this.name);
 }
 
