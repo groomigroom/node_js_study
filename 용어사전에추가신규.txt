@@ -2750,7 +2750,7 @@ locationbar
 menubar
 mozInnerScreenX
 mozInnerScreenY
-name
+
 navigation
 navigator
 opener
