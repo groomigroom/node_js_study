@@ -2717,8 +2717,7 @@ Window.queueMicrotask()
 
 Filter sidebar
 Filter
-HTML DOM API
-Window
+
 Instance properties
 caches
 closed
