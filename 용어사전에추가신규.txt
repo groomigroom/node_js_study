@@ -2892,7 +2892,7 @@ HTMLBRElement
 HTMLBaseElement
 HTMLBodyElement
 HTMLButtonElement
-HTMLCanvasElement
+
 HTMLDListElement
 HTMLDataElement
 HTMLDataListElement
