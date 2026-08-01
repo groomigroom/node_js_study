@@ -2784,7 +2784,7 @@ viewport
 visualViewport
 window
 Instance methods
-alert()
+
 atob()
 blur()
 btoa()
