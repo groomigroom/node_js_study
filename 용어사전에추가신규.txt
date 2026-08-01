@@ -3755,8 +3755,7 @@ References
 Built-in objects
 Expressions & operators
 Statements & declarations
-Functions
-Classes
+
 Regular expressions
 Errors
 Misc
@@ -3772,40 +3771,9 @@ WorkOS Homepage Bottom Banner
 Ad
 Your blueprint for a better internet.
 
-MDN
-About
-Blog
-Mozilla careers
-Advertise with us
-MDN Plus
-Product help
-Contribute
-MDN Community
-Community resources
-Writing guidelines
-MDN Discord
-MDN on GitHub
-Developers
-Web technologies
-Learn web development
-Guides
-Tutorials
-Glossary
-Hacks blog
-Website Privacy Notice
-Telemetry Settings
-Legal
-Community Participation Guidelines
-Portions of this content are ©1998–2026 by individual mozilla.org contributors. Content available under a Creative Commons license.
-
 ------------------------------------------------------------------------------------------------------------------------------
 
 
-Template literals (Template strings)
-
-Theme
-
-English (US)
 Template literals (Template strings)
 Baseline Widely available
 Template literals are literals delimited with backtick (`) characters, allowing for multi-line strings, string interpolation with embedded expressions, and special constructs called tagged templates.
@@ -4187,34 +4155,6 @@ Bun
 Deno
 Node.js
 Template literals
-
-41
-
-12
-
-34
-
-28
-
-9
-
-41
-
-34
-
-28
-
-9
-
-4
-
-41
-
-9
-
-1
-
-1
 
 4
 Escape sequences allowed in tagged template literals
