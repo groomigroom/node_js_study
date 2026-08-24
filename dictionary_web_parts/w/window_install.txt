@@ -1,0 +1,129 @@
+아, 그러면 상황이 명확합니다. VS Code의 PowerShell에서 node 명령을 못 찾는 상태입니다.
+
+앞에서 말씀드린 것처럼 C:\Program Files\nodejs\node.exe에 Node가 실제로 있다면, Node 설치 자체가 문제가 아니라 VS Code가 Node.js가 들어 있는 PATH를 아직 못 읽고 있는 것일 가능성이 큽니다.
+
+1. VS Code 터미널에서 먼저 이것부터 실행
+Test-Path "C:\Program Files\nodejs\node.exe"
+
+True가 나오면
+
+다음 실행:
+
+& "C:\Program Files\nodejs\node.exe" --version
+
+
+여기서 예를 들어:
+
+v22.18.0
+
+
+처럼 나오면 Node.js는 정상입니다.
+
+2. VS Code의 PATH에 Node를 임시로 넣어보기
+
+VS Code 터미널에서:
+
+$env:Path += ";C:\Program Files\nodejs"
+
+
+그리고:
+
+node --version
+
+
+이제 버전이 나오면 원인은 확실히 PATH입니다.
+
+즉,
+
+Node.js 설치 정상
+        ↓
+node.exe 존재
+        ↓
+Windows PATH에 C:\Program Files\nodejs가 없음
+        ↓
+VS Code PowerShell에서 node 명령을 못 찾음
+
+
+상태입니다.
+
+3. 가장 중요한 부분: VS Code를 완전히 재시작
+
+Windows에서 환경변수 PATH를 수정했다면 VS Code를 그냥 터미널만 새로 여는 것으로 해결되지 않는 경우가 있습니다.
+
+VS Code 종료
+모든 VS Code 창 종료
+작업 관리자에서 Code.exe가 남아 있다면 종료
+VS Code 다시 실행
+새 PowerShell 터미널 열기
+실행:
+node --version
+
+4. 그래도 안 되면 Windows PATH를 확인
+
+VS Code가 아니라 일반 Windows PowerShell을 열어서:
+
+$env:Path -split ";"
+
+
+를 실행하세요.
+
+목록에 다음이 있어야 합니다.
+
+C:\Program Files\nodejs
+
+
+없다면 Windows PATH에 추가해야 합니다.
+
+GUI로 추가
+
+Windows 검색 → 환경 변수 검색 →
+시스템 환경 변수 편집 → 환경 변수
+
+여기서 Path를 찾아:
+
+C:\Program Files\nodejs
+
+
+를 추가합니다.
+
+관리자 권한이 없다면 사용자 변수의 Path에 추가해도 됩니다.
+
+5. 그런데 "보안 때문에 막힌 것"인지 확인하는 방법
+
+이 명령을 VS Code에서 실행해보세요.
+
+& "C:\Program Files\nodejs\node.exe" --version
+
+결과가 버전으로 나온다면
+
+예:
+
+v22.19.0
+
+
+👉 보안 때문에 Node가 차단된 게 아닙니다.
+👉 VS Code PowerShell의 PATH 문제입니다.
+
+액세스가 거부되었습니다 같은 오류가 나온다면
+
+그때는 Windows 보안 정책, 회사 보안 프로그램, AppLocker 등의 실행 차단을 의심해야 합니다.
+
+지금은 이 3개만 순서대로 해보세요
+
+VS Code 터미널에서:
+
+Test-Path "C:\Program Files\nodejs\node.exe"
+
+
+그다음:
+
+& "C:\Program Files\nodejs\node.exe" --version
+
+
+그다음:
+
+$env:Path += ";C:\Program Files\nodejs"
+node --version
+
+
+세 명령의 결과를 그대로 보내주세요. 그러면 제가 PATH 문제 / VS Code 문제 / Node 설치 문제 / 회사 보안 차단 중 정확히 어디인지 바로 구분해드릴 수 있습니다.
