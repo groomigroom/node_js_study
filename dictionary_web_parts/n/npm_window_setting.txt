@@ -1,0 +1,139 @@
+네. 이번 오류는 앞의 node 오류와 다릅니다.
+지금은 Node.js와 npm이 제대로 설치되어 있고, PowerShell의 Execution Policy가 npm.ps1 실행을 막고 있는 상태입니다.
+
+오류의 핵심이 이 부분입니다.
+
+이 시스템에서 스크립트를 실행할 수 없으므로
+C:\Program Files\nodejs\npm.ps1 파일을 로드할 수 없습니다.
+
+
+즉:
+
+node.exe → 실행 가능
+npm → 존재함
+npm.ps1 → PowerShell 보안 정책에 의해 실행 차단
+
+가장 추천하는 해결 방법
+
+PowerShell에서 현재 사용자에 대해서만 실행 정책을 허용하면 됩니다.
+
+VS Code 터미널에서 다음을 실행하세요.
+
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+
+그러면 확인 메시지가 나옵니다.
+
+실행 정책을 변경하시겠습니까?
+[Y] 예  [A] 모두 예  [N] 아니요 ...
+
+
+여기서:
+
+Y
+
+
+입력하고 Enter.
+
+그다음 VS Code 터미널을 완전히 닫고 새 터미널을 열어서:
+
+npm --version
+
+
+그리고:
+
+npm create vite@latest .
+
+
+실행하면 됩니다.
+
+왜 CurrentUser를 사용하는가?
+
+제가 권장하는 건:
+
+-Scope CurrentUser
+
+
+입니다.
+
+이렇게 하면 Windows 전체의 보안 정책을 무조건 풀어버리는 게 아니라 현재 사용자에게만 적용됩니다.
+
+또한 RemoteSigned는 로컬에서 만든 PowerShell 스크립트는 실행할 수 있고, 인터넷에서 다운로드한 스크립트는 서명이 필요한 방식입니다.
+
+현재 상태를 확인하려면:
+
+Get-ExecutionPolicy -List
+
+
+실행하면 됩니다.
+
+예를 들어:
+
+MachinePolicy       Undefined
+UserPolicy          Undefined
+Process             Undefined
+CurrentUser         RemoteSigned
+LocalMachine        Restricted
+
+
+처럼 나오면 정상적으로 설정된 것입니다.
+
+그런데 회사 PC라면 주의
+
+만약 다음 명령을 실행했는데:
+
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+
+액세스가 거부되거나 정책 변경이 안 된다면, 회사의 Group Policy가 PowerShell 실행 정책을 강제로 관리하고 있을 수 있습니다.
+
+그 경우에는 우회하려고 하기보다 PowerShell 대신 CMD를 VS Code 터미널로 사용하는 방법이 가장 간단합니다.
+
+VS Code에서:
+
+터미널 → 새 터미널 → 터미널 우측의 + 옆 드롭다운 → Command Prompt
+
+를 선택합니다.
+
+그리고 CMD에서:
+
+npm create vite@latest .
+
+
+실행합니다.
+
+CMD에서는 npm.ps1이 아니라 일반적으로 npm.cmd를 사용하기 때문에 PowerShell의 npm.ps1 실행 정책 문제를 피할 수 있습니다.
+
+지금 상황에서는 이렇게 하세요
+
+우선 VS Code PowerShell에서:
+
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+
+→ Y
+
+그 후 VS Code 터미널을 새로 열고:
+
+node --version
+npm --version
+npm create vite@latest .
+
+
+이 순서로 실행하세요.
+
+React 프로젝트를 만드는 거라면 Vite에서 질문이 나오면 보통:
+
+Framework: React
+Variant: JavaScript
+
+
+또는 TypeScript를 사용할 거라면:
+
+Framework: React
+Variant: TypeScript
+
+
+를 선택하면 됩니다.
+
+참고로 지금 오류는 Node.js를 다시 설치할 필요가 없습니다. 현재 메시지를 보면 C:\Program Files\nodejs\npm.ps1까지 정상적으로 찾아갔기 때문에 Node/npm 설치는 이미 정상적으로 된 상태이고 PowerShell 실행 정책만 해결하면 됩니다.
