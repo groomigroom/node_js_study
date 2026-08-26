@@ -1,0 +1,38 @@
+Node.js에서 데이터베이스(주로 MySQL/MariaDB)에 데이터를 추가(INSERT)할 때, insertId는 방금 삽입된 데이터 행(Row)의 AUTO_INCREMENT(자동 증가) 프라이머리 키(ID) 값을 의미합니다. [1, 2] 
+데이터가 테이블에 성공적으로 저장되면, 데이터베이스는 고유한 식별자(ID)를 자동으로 생성합니다. insertId는 바로 그 생성된 식별자 값을 Node.js 서버에 돌려주는 역할을 합니다. [1, 2] 
+## 💡 언제 사용하나요?
+새로운 데이터를 추가한 직후, 방금 추가한 데이터의 ID를 곧바로 알아내야 할 때 사용합니다. [1, 2] 
+
+* 
+* 상세 페이지 이동: 게시글을 작성하자마자 방금 만든 글의 상세 페이지(posts/3)로 리다이렉트 시킬 때
+* 연관 데이터 저장: 사용자를 추가(INSERT)하고, 방금 생성된 사용자 ID를 외래키(FK)로 사용하여 프로필 테이블에 데이터를 연속으로 저장할 때 [1] 
+* 
+
+------------------------------
+## 💻 코드 예시 (mysql2 모듈 기준)
+
+const sql = `INSERT INTO users (name, email) VALUES (?, ?)`;const values = ['홍길동', 'hong@example.com'];
+
+connection.query(sql, values, (err, result) => {
+  if (err) throw err;
+
+  // result 객체 안에 insertId가 담겨 있습니다.
+  console.log('생성된 유저 ID:', result.insertId); 
+  
+  // 만약 방금 생성된 ID가 5번이라면, 출력 결과는 5가 됩니다.
+});
+
+------------------------------
+## ⚠️ 주의할 점
+
+* 
+* 자동 증가 속성 필수: 테이블의 기본키(PK)에 AUTO_INCREMENT 설정이 없거나, 사용자가 직접 ID를 지정해서 INSERT한 경우에는 insertId 값이 0으로 반환됩니다.
+* 성공할 때만 존재: 당연하게도 쿼리 실행 중 오류(err)가 발생하면 result 자체가 생성되지 않거나 insertId를 가져올 수 없습니다. [2, 3, 4] 
+* 
+
+현재 어떤 데이터베이스 드라이버(mysql, mysql2, sequelize 등)를 사용하고 계시나요? 작업 중이신 상황을 알려주시면 코드에 맞는 구체적인 활용법을 안내해 드릴게요!
+
+[1] [https://blog.naver.com](https://blog.naver.com/pjok1122/221543135629)
+[2] [https://taptorestart.tistory.com](https://taptorestart.tistory.com/entry/Nodejs-mysql-%EB%AA%A8%EB%93%88-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%97%90-insert-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%9E%85%EB%A0%A5-%EB%92%A4-id-%EA%B0%92-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0)
+[3] [https://devforyou.tistory.com](https://devforyou.tistory.com/21)
+[4] [https://webs.co.kr](http://webs.co.kr/?mid=nodejs&document_srl=3314340)
