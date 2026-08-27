@@ -1,0 +1,69 @@
+Node.js의 mysql2 라이브러리에서 createConnection은 단 하나의 데이터베이스 연결을 생성하는 방식이며, createPool은 여러 개의 연결을 미리 만들어두고 재사용하는 커넥션 풀(Connection Pool)을 생성하는 방식입니다.
+실무 및 실제 서비스 환경에서는 성능과 안정성 문제로 인해 대부분 createPool을 필수적으로 사용합니다.
+------------------------------
+## 📊 한눈에 보는 핵심 차이점
+
+| 항목 | createConnection() | createPool() |
+|---|---|---|
+| 연결 개수 | 단 1개의 커넥션만 생성 | 지정된 제한(connectionLimit)만큼 여러 개 생성 |
+| 재사용성 | 매 요청마다 연결을 새로 맺고 끊거나 하나를 공유 | 사용 후 풀(Pool)에 반환하여 계속 재사용 |
+| 병렬 처리 | 1개의 연결을 공유하므로 병렬 쿼리 처리 불가/불안정 | 여러 요청이 들어와도 동시에 독립적으로 실행 가능 |
+| 성능 (비용) | 매번 연결을 생성/해제하면 네트워크 오버헤드가 큼 | 미리 만들어진 연결을 꺼내 쓰므로 매우 빠름 |
+| 추천 용도 | 개인 학습, 단순 테스트용 스크립트 | 실제 서비스, 웹 서버, API 서버 등 모든 실무 환경 |
+
+------------------------------
+## 🔍 상세 개념 이해하기## 1. createConnection (단일 연결)
+
+* 
+* 동작 방식: 데이터베이스 서버와 1:1로 직접 연결되는 통로를 딱 하나만 만듭니다.
+* 문제점: 만약 웹 서버에 동시에 10명의 사용자가 접속해 쿼리를 요청하면, 하나의 통로로 줄을 서서 차례대로 처리해야 합니다. 또한, 연결이 예기치 않게 끊어지면 에러가 발생하므로 개발자가 직접 재연결(Reconnection) 코드를 구현해야 합니다. [1, 2] 
+* 
+
+## 2. createPool (커넥션 풀)
+
+* 
+* 동작 방식: 데이터베이스 연결 통로를 미리 여러 개(예: 10개, 20개) 만들어 두고 '풀(대기실)'에 보관합니다.
+* 장점: 요청이 들어오면 대기 중인 연결을 하나 꺼내어 쿼리를 수행하고, 끝나면 연결을 끊지 않고 다시 풀에 반환합니다. 연결을 맺고 끊는 시간(네트워크 비용)이 절약되며, 동시에 여러 쿼리를 안전하게 병렬 처리할 수 있습니다. [1, 3, 4] 
+* 
+
+------------------------------
+## 🛠️ 코드 사용 예시 (mysql2/promise 기준)## ❌ 비추천: createConnection 방식
+
+const mysql = require('mysql2/promise');
+async function run() {
+  // 요청이 올 때마다 새로 연결을 만들면 서버 과부하의 원인이 됩니다.
+  const connection = await mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'test'
+  });
+
+  const [rows] = await connection.execute('SELECT * FROM users');
+  
+  // 반드시 수동으로 닫아주어야 합니다.
+  await connection.end(); 
+}
+
+## 추천: createPool 방식
+
+const mysql = require('mysql2/promise');
+// 애플리케이션 실행 시 딱 한 번만 풀을 생성합니다.const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  database: 'test',
+  connectionLimit: 10 // 동시에 유지할 최대 연결 개수
+});
+async function jsonApi() {
+  // pool.query나 pool.execute를 사용하면 
+  // 풀에서 알아서 커넥션을 꺼내 쓰고 자동으로 반환해줍니다.
+  const [rows] = await pool.execute('SELECT * FROM users');
+  return rows;
+}
+
+------------------------------
+현재 개발 중이신 프로젝트의 규모나 예상되는 동시 접속자 수를 알려주시면, 커넥션 풀의 connectionLimit 설정 등 환경에 맞는 최적의 DB 연결 옵션을 추천해 드릴 수 있습니다. 어떤 환경에서 작업 중이신가요?
+
+[1] [https://bbomkim.tistory.com](https://bbomkim.tistory.com/143)
+[2] [https://velog.io](https://velog.io/@brandonnam/createConnection-vs-createPool)
+[3] [https://rat2.tistory.com](https://rat2.tistory.com/8)
+[4] [https://likebubbletea.tistory.com](https://likebubbletea.tistory.com/23)
