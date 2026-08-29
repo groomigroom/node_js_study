@@ -1,0 +1,44 @@
+Node.js(또는 일반 JavaScript)에서 Array.isArray()는 전달받은 값이 배열(Array)인지 아닌지를 확인하여 true 또는 false를 반환하는 내장 메서드입니다.
+Node.js 백엔드 개발을 할 때 클라이언트로부터 들어오는 데이터의 타입을 검증(Validation)하기 위해 자주 사용됩니다.
+------------------------------
+## 💡 왜 typeof 대신 Array.isArray()를 쓸까?
+JavaScript에서 typeof 연산자를 사용하면 배열도 일반 객체와 마찬가지로 "object"로 반환되는 치명적인 한계가 있습니다. 이 때문에 값이 진짜 배열인지 구별하려면 Array.isArray()가 반드시 필요합니다.
+
+const colors = ['red', 'blue', 'green'];const user = { name: 'John', age: 30 };
+// typeof를 사용하면 둘 다 'object'가 나옵니다.
+console.log(typeof colors); // 'object' ❌ (배열인지 구별 불가능)
+console.log(typeof user);   // 'object'
+// Array.isArray()를 사용해야 정확히 판별합니다.
+console.log(Array.isArray(colors)); // true  ✅
+console.log(Array.isArray(user));   // false ✅
+
+------------------------------
+## 🛠️ Node.js 개발에서의 주요 활용 예시
+Node.js 환경에서는 주로 API 요청(Request) 바디로 들어오는 데이터를 처리할 때 유효성 검사용으로 많이 씁니다.
+
+// Express.js 라우터 예시
+app.post('/api/products', (req, res) => {
+  const itemIds = req.body.ids; // 클라이언트가 보낸 데이터
+
+  // 클라이언트가 여러 개의 ID를 배열로 잘 보냈는지 검증
+  if (!Array.isArray(itemIds)) {
+    return res.status(400).json({ error: "ids 데이터는 배열 형태여야 합니다." });
+  }
+
+  // 배열이 확실하므로 안전하게 .map()이나 .forEach() 같은 배열 메서드 사용 가능
+  itemIds.forEach(id => {
+    console.log(`상품 ID 처리 중: ${id}`);
+  });
+
+  res.send("처리 완료");
+});
+
+만약 Array.isArray()로 검증하지 않고 itemIds.forEach()를 실행했는데 클라이언트가 문자열이나 숫자를 보냈다면, 서버는 TypeError: itemIds.forEach is not a function 에러를 내며 크래시(서버 다운)가 날 수 있습니다.
+------------------------------
+## 📌 요약 및 판별 결과
+
+* true 반환: [], [1, 2, 3], new Array()
+* false 반환: {}, "string", 123, undefined, null
+
+현재 작성 중이신 코드에서 어떤 형태의 데이터를 검증하려고 하시나요? 관련된 에러나 상황을 공유해 주시면 구체적인 예제 코드를 작성해 드릴 수 있습니다.
+
