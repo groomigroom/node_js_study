@@ -1,1 +1,47 @@
-yy
+mysql2 패키지에서 execute 메서드는 Prepared Statement(준비된 문장)를 사용하여 SQL 쿼리를 실행하는 기능입니다. [1, 2] 
+일반 query 메서드와 비슷해 보이지만, 보안성과 성능 측면에서 매우 중요한 차이를 가집니다. [1, 2] 
+------------------------------
+## 💡 query vs execute 핵심 비교
+
+| 특징 | query | execute (Prepared Statement) |
+|---|---|---|
+| 동작 방식 | 쿼리와 데이터를 하나의 문자열로 합쳐 매번 통째로 파싱함 | 쿼리 틀(구조)을 먼저 컴파일한 후 데이터만 끼워 넣음 |
+| 보안성 | SQL Injection 공격에 취약할 수 있음 (이스케이프 필요) | SQL Injection 공격을 원천 차단함 (매우 안전) |
+| 성능 (반복 실행) | 매번 동일한 쿼리도 다시 파싱하므로 상대적으로 느림 | 캐싱된 쿼리 틀을 재사용하므로 반복 실행 시 훨씬 빠름 |
+| 사용 목적 | 변수가 없는 단순 조회, 일회성 데이터베이스 관리(DDL) 등 | 사용자 입력값이 포함된 모든 CRUD 쿼리 |
+
+------------------------------
+## 🛠️ 코드로 보는 동작 원리
+execute를 사용할 때는 쿼리문 내부의 변수 자리에 물음표(?)를 넣고, 실제 데이터는 두 번째 인자에 배열 형태로 전달합니다. [2] 
+
+const mysql = require('mysql2/promise');
+async function getUser(userId) {
+  const connection = await mysql.createConnection({/* DB 설정 */});
+
+  // 1. query 사용 (보안 취약 및 비효율적)
+  // connection.query(`SELECT * FROM users WHERE id = ${userId}`); 
+
+  // 2. execute 사용 (권장 - Prepared Statement)
+  const sql = 'SELECT * FROM users WHERE id = ?';
+  const [rows] = await connection.execute(sql, [userId]); // 안전하게 실행
+  
+  return rows;
+}
+
+## execute가 안전하고 빠른 이유
+
+   1. 보안 (SQL Injection 방지): 데이터베이스는 사용자가 userId에 악성 SQL 코드(예: ' OR '1'='1)를 입력하더라도, 이를 코드가 아닌 단순한 텍스트 데이터로만 취급하여 처리하기 때문에 안전합니다. [2] 
+   2. 성능 (캐싱): 동일한 구조의 SELECT * FROM users WHERE id = ? 쿼리가 반복 요청되면, 데이터베이스는 쿼리 분석 과정을 생략하고 데이터(userId)만 바꾸어 실행하므로 성능이 대폭 향상됩니다. [2] 
+
+------------------------------
+## 📌 결론: 무엇을 써야 할까?
+
+* 
+* 일반적인 백엔드 개발 환경에서는 웹 서버의 보안과 성능 향상을 위해 대부분의 쿼리에 execute를 사용하는 것이 표준입니다.
+* 변수가 들어가지 않는 단순한 쿼리(예: SELECT * FROM 테이블 전체 조회)에 한해서만 query를 사용해도 무방합니다. [1, 2] 
+* 
+
+현재 작성 중이신 프로젝트의 규모나 데이터베이스 연결 방식(싱글 커넥션 / 커넥션 풀)을 알려주시면 상황에 맞는 코드를 안내해 드릴 수 있습니다. 어떻게 도와드릴까요?
+
+[1] [https://kimjh0727.tistory.com](https://kimjh0727.tistory.com/entry/npm-mysql2-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%EC%97%90%EC%84%9C-query%EC%99%80-execute-%EB%A9%94%EC%84%9C%EB%93%9C-%EB%B9%84%EA%B5%90)
+[2] [https://fillbycoding.tistory.com](https://fillbycoding.tistory.com/87)
