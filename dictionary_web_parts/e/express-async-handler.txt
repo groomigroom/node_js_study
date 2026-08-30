@@ -1,0 +1,36 @@
+Node.js에서 express-async-handler를 사용하면 비동기 에러 처리가 훨씬 간결해지고 코드가 깔끔해집니다. Express는 기본적으로 비동기(async/await) 함수 내부에서 발생한 에러를 자동으로 Catch하지 못하므로 개발자가 직접 처리해야 하는데, 이 라이브러리가 이 작업을 자동화해 줍니다.
+핵심 장점과 비교는 다음과 같습니다.
+## 1. try-catch 지옥 탈출 (가장 큰 장점)
+async/await를 사용할 때 에러를 잡으려면 모든 미들웨어와 라우터마다 try-catch 블록을 감싸고 next(err)를 호출해야 합니다. 이 라이브러리를 쓰면 이 반복적인 코드가 사라집니다.
+
+* 기존 방식 (지저분한 코드):
+
+app.get('/user', async (req, res, next) => {
+  try {
+    const user = await User.findById(req.query.id);
+    res.send(user);
+  } catch (error) {
+    next(error); // 에러 핸들러로 수동 전달 필수
+  }
+});
+
+* 라이브러리 적용 후 (깔끔한 코드):
+
+const asyncHandler = require('express-async-handler');
+
+app.get('/user', asyncHandler(async (req, res) => {
+  const user = await User.findById(req.query.id); // 에러 발생 시 자동으로 next(error)로 전달됨
+  res.send(user);
+}));
+
+
+## 2. 서버 다운(Crash) 방지
+Express 4 버전까지는 비동기 함수 내에서 에러가 발생했는데 try-catch로 잡지 않으면, 에러가 공중에 떠버려(Unhandled Promise Rejection) 서버가 그대로 멈추거나 다운될 수 있습니다. express-async-handler는 이를 안전하게 catch하여 Express의 글로벌 에러 핸들러로 보내주기 때문에 안심하고 코드를 짤 수 있습니다.
+## 3. 직관적인 중앙 집중식 에러 관리
+라우터 내부에서 에러 처리에 신경 쓸 필요가 없어지므로, 모든 에러를 애플리케이션 최하단에 있는 하나의 공통 에러 핸들러 미들웨어에서 깔끔하게 처리할 수 있습니다.
+------------------------------
+## 💡 Express 5 버전과의 차이점 (참고)
+만약 현재 프로젝트에서 Express v5.0.0 이상 버전을 사용하고 있다면, Express 자체적으로 async/await 에러 핸들링을 기본 지원합니다. 따라서 Express 5를 쓰신다면 이 라이브러리를 따로 설치할 필요가 없습니다. (Express 4 이하 버전에서는 필수적인 라이브러리입니다.)
+------------------------------
+현재 진행 중인 프로젝트의 Express 버전을 알고 계시나요? 혹은 현재 프로젝트에 공통 에러 핸들러 미들웨어를 구현하는 방법이 궁금하시다면 함께 도와드리겠습니다.
+
