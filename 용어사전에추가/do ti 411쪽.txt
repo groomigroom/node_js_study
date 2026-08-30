@@ -51,7 +51,12 @@ bcrypt.compare(loginPassword, hashedPassword, (error, result) => {
     } else if {
       //비번 불일치
     }
-  } catch
+  } catch (error) {
+    //오류 처리
+  }
 });
+
+-----------------------------------------------------------------------------------------------------------
+
 
 
