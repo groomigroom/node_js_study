@@ -34,5 +34,13 @@ bcrypt.hash(password, 10, (err, hash) => {
 
 비밀번호 확인하기
 
-bcrypt.compare
+bcrypt.compare(data, encrypted, callback)
+=> data : 비교할 입력값
+encrypted : 비교할 대상
+callback 값 2개를 비교한 후에 실행할 함수
+
+-----------------------------------------------------------------------------------------------------------
+
+
+
 
