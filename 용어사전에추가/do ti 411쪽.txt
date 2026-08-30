@@ -46,8 +46,12 @@ const hashedPassword = 'db에서 가져온 해시값';
 
 bcrypt.compare(loginPassword, hashedPassword, (error, result) => {
   try {
-
-  }
+    if (result === true) {
+      //비번 일치
+    } else if {
+      //비번 불일치
+    }
+  } catch
 });
 
 
