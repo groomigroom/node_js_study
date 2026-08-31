@@ -1,0 +1,32 @@
+JavaScript(Node.js)에서 변수 앞에 !!(이중 부정)을 사용하는 이유는 어떤 값이든 명확한 불리언(Boolean) 타입(true 또는 false)으로 강제 변환(Type Casting)하기 위해서입니다.
+res.json()을 통해 클라이언트에 데이터를 보낼 때, triples_like 필드에 다른 타입의 값 대신 확실하게 true나 false만 전달되도록 보장하는 안전장치 역할을 합니다.
+------------------------------
+## 🔍 작동 원리
+!!는 특별한 연산자가 아니라, 논리 부정 연산자(!)를 두 번 연속으로 쓴 것입니다.
+
+   1. 첫 번째 !: 값을 반대의 불리언 값으로 바꿉니다. (이 과정에서 불리언 타입으로 1차 변환됩니다.)
+   2. 두 번째 !: 그 값을 다시 반대로 뒤집어 원래 값의 불리언 상태를 찾아옵니다.
+
+## 💡 왜 이렇게 할까요? (예시)
+만약 newLike 변수에 불리언이 아닌 다른 값이 들어있을 때, !!를 쓰면 다음과 같이 변환됩니다.
+
+* Falsy (거짓 같은 값) ➡️ false로 변환
+* !!null ➡️ !true ➡️ false
+   * !!undefined ➡️ !true ➡️ false
+   * !!0 ➡️ !true ➡️ false
+* Truthy (참 같은 값) ➡️ true로 변환
+* !!{ id: 1 } (객체) ➡️ !false ➡️ true
+   * !!"like" (문자열) ➡️ !false ➡️ true
+
+## 🛠️ 코드로 보는 차이
+만약 newLike가 데이터베이스에서 생성된 객체이거나 데이터가 없는 null일 때의 결과 비교입니다.
+
+// 1. !!를 사용하지 않았을 때let newLike = null; 
+res.json({ triples_like: newLike }); // 결과: { "triples_like": null } -> 클라이언트가 null을 처리해야 함
+// 2. !!를 사용했을 때let newLike = null;
+res.json({ triples_like: !!newLike }); // 결과: { "triples_like": false } -> 클라이언트가 깔끔하게 false로 받음
+
+Boolean(newLike)와 완전히 동일하게 작동하지만, 글자 수가 적고 간결하여 JavaScript 개발자들이 관용적으로 자주 사용하는 패턴입니다.
+------------------------------
+궁금증이 해결되셨나요? 만약 newLike에 정확히 어떤 데이터 타입이 들어오는지 알려주시면, 해당 상황에 맞는 더 구체적인 변환 예시를 보여드릴 수 있습니다.
+
