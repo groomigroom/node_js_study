@@ -1,0 +1,34 @@
+include 함수를 호출할 때 두 번째 인자로 객체를 전달하면 footer.ejs 파일로 원하는 데이터를 보낼 수 있습니다.
+## 해결 방법
+메인 파일(예: index.ejs)에서 아래와 같이 content 데이터를 객체에 담아 전달하세요.
+
+<%- include('./footer', { content: '여기에 들어갈 푸터 내용입니다.' }) %>
+//경로 작성은 현재 파일 기준으로
+
+------------------------------
+## 💡 참고 및 팁
+
+   1. 변수 이름 매칭: 전달하는 객체의 Key 이름(content)과 footer.ejs에서 사용하는 변수명(footer.content)의 형태를 맞춰야 합니다.
+   * 만약 footer.ejs에서 <%= footer.content %>라고 쓰고 있다면, 데이터를 보낼 때도 footer라는 객체 형태로 감싸서 보내야 에러가 나지 않습니다.
+   
+[메인 파일 (index.ejs)]
+
+<%- include('./footer', { footer: { content: '웹사이트 하단 문구' } }) %>
+
+[삽입될 파일 (footer.ejs)]
+
+<footer>
+    <%= footer.content %>
+</footer>
+
+
+   1. Express 라우터에서 직접 보내기: 만약 include 단계가 아니라 Node.js 서버(Express)에서 데이터를 바로 푸터까지 전달하고 싶다면, res.render에서 데이터를 한 번에 보내셔도 됩니다. Express가 하위 include 파일까지 데이터를 자동으로 전달해 줍니다.
+
+// app.js 또는 라우터 파일
+app.get('/', (req, res) => {
+    res.render('index', { footer: { content: '서버에서 보낸 푸터 내용' } });
+});
+
+추가로 ejs 파일 간에 공통으로 쓰이는 레이아웃 구조나 더 복잡한 데이터 전달 방식에 대해 궁금한 점이 있으시다면 언제든 말씀해 주세요!
+
+
